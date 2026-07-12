@@ -56,7 +56,7 @@ export default function ProjectsPage() {
         <div className="mx-auto max-w-[1700px] px-6">
           <div className="mb-8 flex flex-wrap items-center justify-between gap-4">
             <h2 className="text-3xl font-bold">Video Gallery</h2>
-            <a href="#images" className="inline-flex items-center justify-center gap-2 rounded-full bg-primary px-6 py-3 font-medium text-primary-foreground transition hover:opacity-90">📷 <span>Image Gallery</span></a>
+            <a href="#images" className="inline-flex items-center justify-center gap-2 rounded-full bg-primary px-6 py-3 font-medium text-primary-foreground transition hover:opacity-90">📷 <span> Check Image Gallery</span></a>
           </div>
           <div className="grid gap-8 lg:grid-cols-3">
             {videos.map((id, index) => (
@@ -74,7 +74,7 @@ export default function ProjectsPage() {
         <div className="mx-auto max-w-7xl px-6">
           <div className="mb-8 flex flex-wrap items-center justify-between gap-4">
             <h2 className="text-3xl font-bold">Image Gallery</h2>
-            <a href="#videos" className="inline-flex items-center justify-center gap-2 rounded-full bg-primary px-6 py-3 font-medium text-primary-foreground transition hover:opacity-90">🎥 <span>Video Gallery</span></a>
+            <a href="#videos" className="inline-flex items-center justify-center gap-2 rounded-full bg-primary px-6 py-3 font-medium text-primary-foreground transition hover:opacity-90">🎥 <span>Check Video Gallery</span></a>
           </div>
           <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
             {images.map(([filename, venue, location]) => (

@@ -1,65 +1,359 @@
-import Image from "next/image";
+"use client";
 
-export default function Home() {
+import Image from "next/image";
+import Link from "next/link";
+import { useState } from "react";
+import { motion } from "framer-motion";
+
+import {
+  ArrowLeft,
+  ArrowRight,
+  Lightbulb,
+  MonitorPlay,
+  Volume2,
+} from "lucide-react";
+
+import { SiteLayout } from "@/components/site-layout";
+import {
+  revealProps,
+  staggerContainer,
+  staggerItem,
+} from "@/lib/motion";
+
+const heroImage = "/assets/hero.jpg";
+
+const services = [
+  {
+    icon: Volume2,
+    title: "Acoustics",
+    tag: "When sound matters",
+    desc:
+      "Room acoustics, sound isolation and noise control from home theatres to auditoriums, studios and worship spaces.",
+    overview:
+      "We design acoustic environments that enhance clarity, comfort and performance. Whether it is a home theatre, auditorium, recording studio, worship space or commercial facility, every solution is engineered to deliver balanced sound, effective noise control and seamless architectural integration.",
+  },
+  {
+    icon: Lightbulb,
+    title: "Lighting",
+    tag: "When light matters",
+    desc:
+      "Architectural, decorative and pixel-mapped LED lighting powered by MADRIX.",
+    overview:
+      "Lighting shapes emotion, architecture and atmosphere. We create intelligent lighting systems that combine aesthetics with functionality.",
+  },
+  {
+    icon: MonitorPlay,
+    title: "Audio Visual",
+    tag: "When AV matters",
+    desc:
+      "Projection, displays, distributed audio and complete AV integration.",
+    overview:
+      "Professional AV systems designed for reliability, ease of operation and outstanding presentation quality.",
+  },
+];
+
+type Service = (typeof services)[number];
+
+function getServiceId(title: string) {
+  return title.toLowerCase().replace(/\s+/g, "-");
+}
+function ServiceCard({
+  service,
+  expanded,
+  anyExpanded,
+  onToggle,
+}: {
+  service: Service;
+  expanded: boolean;
+  anyExpanded: boolean;
+  onToggle: () => void;
+}) {
+  const { icon: Icon, title, tag, desc, overview } = service;
+
   return (
-    <div className="flex flex-col flex-1 items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex flex-1 w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.tsx file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
+    <motion.article
+      {...staggerItem}
+      layout
+      onClick={!expanded ? onToggle : undefined}
+      className={`relative overflow-hidden border bg-ink-soft transition-all duration-500 cursor-pointer ${
+        expanded
+          ? "rounded-3xl border-primary p-8 lg:flex-[3]"
+          : anyExpanded
+          ? "hidden lg:hidden"
+          : "rounded-2xl border-border p-6 hover:border-primary flex-1"
+      }`}
+    >
+      {expanded && (
+        <button
+          onClick={(e) => {
+            e.stopPropagation();
+            onToggle();
+          }}
+          className="absolute left-6 top-6 flex h-10 w-10 items-center justify-center rounded-full border border-border hover:border-primary transition-colors"
+        >
+          <ArrowLeft className="h-4 w-4" />
+        </button>
+      )}
+
+      {!expanded && (
+        <div className="absolute right-5 top-5 h-2 w-2 rounded-full bg-primary opacity-0 group-hover:opacity-100" />
+      )}
+
+      <div
+        className={`flex ${
+          expanded
+            ? "flex-col lg:flex-row gap-10"
+            : "flex-col"
+        }`}
+      >
+        <div
+          className={`${
+            expanded
+              ? "lg:w-1/3 lg:pl-12"
+              : "w-full"
+          }`}
+        >
+          <Icon
+            className="h-9 w-9 text-primary"
+            strokeWidth={1.5}
+          />
+
+          <h3 className="mt-6 text-3xl font-bold">
+            {title}
+          </h3>
+
+          <p className="mt-2 font-mono text-[11px] uppercase tracking-[0.25em] text-primary">
+            {tag}
+          </p>
+
+          <p className="mt-5 leading-relaxed text-muted-foreground">
+            {desc}
           </p>
         </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
+
+        {expanded && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            className="lg:w-2/3"
           >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
-        </div>
-      </main>
-    </div>
+            <p className="font-mono text-[11px] uppercase tracking-[0.25em] text-primary">
+              Overview
+            </p>
+
+            <p className="mt-4 leading-8 text-muted-foreground">
+              {overview}
+            </p>
+          </motion.div>
+        )}
+      </div>
+    </motion.article>
   );
 }
+
+export default function Home() {
+  const [expandedService, setExpandedService] =
+    useState<string | null>(null);
+
+  return (
+    <SiteLayout>
+            {/* ================= HERO ================= */}
+
+      <section className="relative overflow-hidden">
+        <div className="absolute inset-0">
+
+          <Image
+            src={heroImage}
+            alt="Hero"
+            fill
+            priority
+            className="object-cover opacity-60"
+          />
+
+          <div className="absolute inset-0 bg-gradient-to-b from-background/40 via-background/70 to-background" />
+
+          <div className="grid-lines absolute inset-0 opacity-40" />
+
+        </div>
+
+        <div className="relative mx-auto flex min-h-[92vh] max-w-7xl items-center px-4 sm:px-6 lg:px-8">
+
+          <div className="max-w-5xl">
+
+            <motion.div
+              {...revealProps}
+              className="flex items-center gap-3"
+            >
+              <span className="h-px w-12 bg-primary" />
+
+              <span className="font-mono text-[11px] uppercase tracking-[0.35em] text-primary">
+                DESIGN • CONSULTANCY • EXECUTION
+              </span>
+            </motion.div>
+
+            <motion.h1
+              {...revealProps}
+              className="mt-8 text-5xl font-black leading-[0.9] tracking-tight sm:text-7xl lg:text-[8rem]"
+            >
+              Acoustics.
+              <br />
+
+              <span className="text-stroke-yellow">
+                Lighting.
+              </span>
+
+              <br />
+
+              <span className="text-primary">
+                Audio Visual.
+              </span>
+            </motion.h1>
+
+            <motion.p
+              {...revealProps}
+              className="mt-8 max-w-2xl text-lg leading-8 text-muted-foreground"
+            >
+              Professional consultancy, design and execution for
+              acoustics, architectural lighting and integrated
+              audio visual systems.
+
+              Every project is engineered to look exceptional,
+              sound incredible and perform flawlessly.
+            </motion.p>
+
+            <motion.div
+              {...revealProps}
+              className="mt-10 flex flex-wrap gap-4"
+            >
+              <Link
+                href="/projects"
+                className="group inline-flex items-center gap-3 border-2 border-primary bg-primary px-7 py-4 font-mono text-xs uppercase tracking-[0.2em] text-primary-foreground transition-all hover:bg-transparent hover:text-primary"
+              >
+                View Projects
+
+                <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
+              </Link>
+
+              <Link
+                href="/contact"
+                className="inline-flex items-center border border-border px-7 py-4 font-mono text-xs uppercase tracking-[0.2em] transition-colors hover:border-primary hover:text-primary"
+              >
+                Contact Us
+              </Link>
+            </motion.div>
+
+          </div>
+
+        </div>
+      </section>
+
+      {/* ================= SERVICES ================= */}
+
+      <section className="py-24 lg:py-32">
+
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+
+          <motion.div
+            {...revealProps}
+            className="max-w-3xl"
+          >
+
+            <span className="font-mono text-[11px] uppercase tracking-[0.3em] text-primary">
+              WHAT WE DO
+            </span>
+
+            <h2 className="mt-4 text-4xl font-black sm:text-6xl">
+              Three disciplines.
+              <br />
+              One studio.
+            </h2>
+
+            <p className="mt-6 text-lg leading-8 text-muted-foreground">
+              We combine acoustics, lighting and
+              audio visual engineering into one
+              seamless experience from design
+              through execution.
+            </p>
+
+          </motion.div>
+
+          <motion.div
+            {...staggerContainer}
+            className={`mt-14 flex flex-col gap-5 lg:flex-row ${
+              expandedService ? "lg:gap-0" : ""
+            }`}
+          >
+                        {services.map((service) => (
+              <ServiceCard
+                key={service.title}
+                service={service}
+                expanded={expandedService === service.title}
+                anyExpanded={expandedService !== null}
+                onToggle={() =>
+                  setExpandedService((current) =>
+                    current === service.title ? null : service.title
+                  )
+                }
+              />
+            ))}
+          </motion.div>
+
+        </div>
+      </section>
+
+      {/* ================= CTA ================= */}
+
+      <section className="relative overflow-hidden border-t border-border py-28">
+
+        <div className="grid-lines absolute inset-0 opacity-30" />
+
+        <motion.div
+          {...revealProps}
+          className="relative mx-auto max-w-4xl px-4 text-center sm:px-6 lg:px-8"
+        >
+          <span className="font-mono text-[11px] uppercase tracking-[0.35em] text-primary">
+            LET'S BUILD SOMETHING
+          </span>
+
+          <h2 className="mt-6 text-4xl font-black leading-tight sm:text-6xl">
+            Ready to transform
+            <br />
+
+            <span className="text-primary">
+              your space?
+            </span>
+          </h2>
+
+          <p className="mx-auto mt-8 max-w-2xl text-lg leading-8 text-muted-foreground">
+            Whether you're designing a home theatre,
+            auditorium, studio, hospitality venue or
+            commercial building, let's create an
+            experience that looks stunning and sounds
+            exceptional.
+          </p>
+
+          <div className="mt-12 flex flex-wrap justify-center gap-4">
+
+            <Link
+              href="/contact"
+              className="group inline-flex items-center gap-3 border-2 border-primary bg-primary px-8 py-4 font-mono text-xs uppercase tracking-[0.2em] text-primary-foreground transition-all hover:bg-transparent hover:text-primary"
+            >
+              Start Your Project
+
+              <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
+            </Link>
+
+            <Link
+              href="/projects"
+              className="inline-flex items-center border border-border px-8 py-4 font-mono text-xs uppercase tracking-[0.2em] transition-colors hover:border-primary hover:text-primary"
+            >
+              View Portfolio
+            </Link>
+
+          </div>
+        </motion.div>
+
+      </section>
+    </SiteLayout>
+  );
+} 

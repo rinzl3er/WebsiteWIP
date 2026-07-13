@@ -80,10 +80,14 @@ export default function ProjectsPage() {
             {images.map(([filename, venue, location]) => (
               <div key={filename} className="group relative overflow-hidden rounded-xl shadow-lg">
                 <img src={`/Site images/${filename}`} alt={`${venue} - ${location}`} className="h-72 w-full object-cover transition duration-500 group-hover:scale-105" />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent" />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent transition-all duration-300 ease-out lg:from-transparent lg:via-transparent lg:to-transparent lg:bg-transparent lg:group-hover:from-black/85 lg:group-hover:via-black/30 lg:group-hover:to-transparent" />
                 <div className="absolute bottom-0 left-0 p-5">
-                  <h3 className="text-lg font-semibold text-white">{venue}</h3>
-                  <p className="mt-1 text-sm text-white/80">📍 {location}</p>
+                  <h3 className="text-lg font-semibold text-white transition-all duration-300 ease-out lg:opacity-0 lg:translate-y-2 lg:group-hover:opacity-100 lg:group-hover:translate-y-0">
+                    {venue}
+                  </h3>
+                  <p className="mt-1 text-sm text-white/80 transition-all duration-300 ease-out lg:opacity-0 lg:translate-y-2 lg:group-hover:opacity-100 lg:group-hover:translate-y-0 lg:group-hover:delay-75">
+                    📍 {location}
+                  </p>
                 </div>
               </div>
             ))}

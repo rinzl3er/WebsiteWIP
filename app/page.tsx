@@ -54,9 +54,6 @@ const services = [
 
 type Service = (typeof services)[number];
 
-function getServiceId(title: string) {
-  return title.toLowerCase().replace(/\s+/g, "-");
-}
 function ServiceCard({
   service,
   expanded,
@@ -312,9 +309,9 @@ export default function Home() {
           className="relative mx-auto max-w-4xl px-4 text-center sm:px-6 lg:px-8"
         >
           <span className="font-mono text-[11px] uppercase tracking-[0.35em] text-primary">
-            LET'S BUILD SOMETHING
+            LET&apos;S BUILD SOMETHING
           </span>
-
+          
           <h2 className="mt-6 text-4xl font-black leading-tight sm:text-6xl">
             Ready to transform
             <br />
@@ -325,9 +322,9 @@ export default function Home() {
           </h2>
 
           <p className="mx-auto mt-8 max-w-2xl text-lg leading-8 text-muted-foreground">
-            Whether you're designing a home theatre,
+            Whether you&apos;re designing a home theatre,
             auditorium, studio, hospitality venue or
-            commercial building, let's create an
+            commercial building, let&apos;s create an
             experience that looks stunning and sounds
             exceptional.
           </p>

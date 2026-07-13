@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import type { ReactNode } from "react";
 import { FaEnvelope, FaFacebookF, FaInstagram, FaMapMarkerAlt, FaPhone, FaWhatsapp, FaYoutube } from "react-icons/fa";
 import { PageHeader, SiteLayout } from "@/components/site-layout";
@@ -59,13 +60,48 @@ export default function ContactPage() {
           </div>
 
           <div className="mt-4 grid gap-4 sm:grid-cols-[1fr_auto]">
-            <div className="flex flex-col gap-4 border border-border bg-ink-soft p-7 sm:flex-row sm:items-start sm:gap-8">
-              <div className="flex h-10 w-10 shrink-0 items-center justify-center border border-border bg-background"><FaMapMarkerAlt className="h-4 w-4 text-primary" /></div>
-              <div>
-                <p className="font-mono text-[10px] uppercase tracking-[0.28em] text-muted-foreground">Based in</p>
-                <p className="mt-1.5 text-lg font-bold tracking-tight">Mumbai, India</p>
-                <p className="mt-1 text-sm text-muted-foreground">Projects delivered pan-India. From home theatres to large auditoriums, clubs, hotels and luxury residences.</p>
+            <div className="flex flex-col gap-6 border border-border bg-ink-soft p-7 md:grid md:grid-cols-2 md:items-center md:gap-8 lg:gap-12">
+              {/* Left Column */}
+              <div className="flex flex-col gap-4 sm:flex-row sm:items-start sm:gap-8">
+                <div className="flex h-10 w-10 shrink-0 items-center justify-center border border-border bg-background">
+                  <FaMapMarkerAlt className="h-4 w-4 text-primary" />
+                </div>
+                <div>
+                  <p className="font-mono text-[10px] uppercase tracking-[0.28em] text-muted-foreground">Based in</p>
+                  <p className="mt-1.5 text-lg font-bold tracking-tight">Mumbai, India</p>
+                  <div className="mt-2 text-sm leading-relaxed text-muted-foreground">
+                    Shree Ramnath CHS, Shop no.10<br />
+                    Chhatrapati Shivaji Maharaj Road<br />
+                    Opp. Karnataka Hall, Matunga Road West<br />
+                    Mumbai, Maharashtra 400016
+                  </div>
+                  <p className="mt-4 text-xs text-muted-foreground/60">
+                    Serving clients across India.
+                  </p>
+                </div>
               </div>
+
+              {/* Right Column: Clickable map card */}
+              <a
+                href="https://maps.app.goo.gl/1GWFkEiVJPXvGYTA6"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="group relative block aspect-video w-full overflow-hidden rounded-xl border border-primary/20 transition-all duration-300 hover:scale-[1.015] hover:border-primary/50 hover:shadow-lg"
+              >
+                <Image
+                  src="/assets/mumbai_map_preview_clean.png"
+                  alt="Office location map preview"
+                  fill
+                  className="object-cover transition-transform duration-500 group-hover:scale-[1.02]"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent opacity-85 transition-opacity duration-300 group-hover:opacity-70" />
+
+                {/* Overlay in bottom-right corner */}
+                <div className="absolute bottom-3 right-3 flex items-center gap-1 rounded bg-background/90 px-2.5 py-1 text-[10px] font-mono uppercase tracking-wider text-primary border border-primary/30 transition-all duration-300 group-hover:border-primary">
+                  <span>View on Google Maps</span>
+                  <span className="font-sans">↗</span>
+                </div>
+              </a>
             </div>
 
             <div className="flex flex-col gap-4 border border-border bg-ink-soft p-7">

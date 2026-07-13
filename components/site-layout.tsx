@@ -49,14 +49,20 @@ function useDelayedUnmount(
   isMounted: boolean,
   delayTime: number
 ) {
-  const [shouldRender, setShouldRender] = useState(false);
+  const [shouldRender, setShouldRender] = useState(isMounted);
+  const [prevIsMounted, setPrevIsMounted] = useState(isMounted);
+
+  if (isMounted !== prevIsMounted) {
+    setPrevIsMounted(isMounted);
+    if (isMounted) {
+      setShouldRender(true);
+    }
+  }
 
   useEffect(() => {
     let timeoutId: ReturnType<typeof setTimeout>;
 
-    if (isMounted && !shouldRender) {
-      setShouldRender(true);
-    } else if (!isMounted && shouldRender) {
+    if (!isMounted && shouldRender) {
       timeoutId = setTimeout(
         () => setShouldRender(false),
         delayTime

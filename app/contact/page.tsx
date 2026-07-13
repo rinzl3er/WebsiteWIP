@@ -64,7 +64,7 @@ export default function ContactPage() {
               <div>
                 <p className="font-mono text-[10px] uppercase tracking-[0.28em] text-muted-foreground">Based in</p>
                 <p className="mt-1.5 text-lg font-bold tracking-tight">Mumbai, India</p>
-                <p className="mt-1 text-sm text-muted-foreground">Projects delivered pan-India — from home theatres to large auditoriums, clubs, hotels and luxury residences.</p>
+                <p className="mt-1 text-sm text-muted-foreground">Projects delivered pan-India. From home theatres to large auditoriums, clubs, hotels and luxury residences.</p>
               </div>
             </div>
 

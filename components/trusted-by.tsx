@@ -49,7 +49,7 @@ export function TrustedBy() {
               key={`row1-${idx}`}
               className="flex items-center justify-center w-[160px] sm:w-[220px] mx-6 sm:mx-10 shrink-0"
             >
-              <div className="relative w-full h-24 grayscale opacity-60 hover:grayscale-0 hover:opacity-100 transition-all duration-500">
+              <div className="relative w-full h-24 hover:scale-105 transition-transform duration-500">
                 <Image
                   src={`/company-logos/${logo}`}
                   alt={`Client Logo ${idx}`}
@@ -69,7 +69,7 @@ export function TrustedBy() {
               key={`row2-${idx}`}
               className="flex items-center justify-center w-[160px] sm:w-[220px] mx-6 sm:mx-10 shrink-0"
             >
-              <div className="relative w-full h-24 grayscale opacity-60 hover:grayscale-0 hover:opacity-100 transition-all duration-500">
+              <div className="relative w-full h-24 hover:scale-105 transition-transform duration-500">
                 <Image
                   src={`/company-logos/${logo}`}
                   alt={`Client Logo ${idx}`}

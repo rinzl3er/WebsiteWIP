@@ -14,6 +14,7 @@ import {
 } from "lucide-react";
 
 import { SiteLayout } from "@/components/site-layout";
+import { TrustedBy } from "@/components/trusted-by";
 import {
   revealProps,
   staggerContainer,
@@ -72,13 +73,12 @@ function ServiceCard({
       {...staggerItem}
       layout
       onClick={!expanded ? onToggle : undefined}
-      className={`relative overflow-hidden border bg-ink-soft transition-all duration-500 cursor-pointer ${
-        expanded
-          ? "rounded-3xl border-primary p-8 lg:flex-[3]"
-          : anyExpanded
+      className={`relative overflow-hidden border bg-ink-soft transition-all duration-500 cursor-pointer ${expanded
+        ? "rounded-3xl border-primary p-8 lg:flex-[3]"
+        : anyExpanded
           ? "hidden lg:hidden"
           : "rounded-2xl border-border p-6 hover:border-primary flex-1"
-      }`}
+        }`}
     >
       {expanded && (
         <button
@@ -97,18 +97,16 @@ function ServiceCard({
       )}
 
       <div
-        className={`flex ${
-          expanded
-            ? "flex-col lg:flex-row gap-10"
-            : "flex-col"
-        }`}
+        className={`flex ${expanded
+          ? "flex-col lg:flex-row gap-10"
+          : "flex-col"
+          }`}
       >
         <div
-          className={`${
-            expanded
-              ? "lg:w-1/3 lg:pl-12"
-              : "w-full"
-          }`}
+          className={`${expanded
+            ? "lg:w-1/3 lg:pl-12"
+            : "w-full"
+            }`}
         >
           <Icon
             className="h-9 w-9 text-primary"
@@ -210,7 +208,7 @@ export default function Home() {
 
   return (
     <SiteLayout>
-            {/* ================= HERO ================= */}
+      {/* ================= HERO ================= */}
 
       <section className="relative overflow-hidden">
         <div className="absolute inset-0">
@@ -251,7 +249,7 @@ export default function Home() {
               Acoustics.
               <br />
 
-              <span className="text-stroke-yellow">
+              <span className="bg-gradient-to-r from-foreground to-primary bg-clip-text text-transparent">
                 Lighting.
               </span>
 
@@ -332,11 +330,10 @@ export default function Home() {
 
           <motion.div
             {...staggerContainer}
-            className={`mt-14 flex flex-col gap-5 lg:flex-row ${
-              expandedService ? "lg:gap-0" : ""
-            }`}
+            className={`mt-14 flex flex-col gap-5 lg:flex-row ${expandedService ? "lg:gap-0" : ""
+              }`}
           >
-                        {services.map((service) => (
+            {services.map((service) => (
               <ServiceCard
                 key={service.title}
                 service={service}
@@ -353,6 +350,10 @@ export default function Home() {
 
         </div>
       </section>
+
+      {/* ================= TRUSTED BY ================= */}
+
+      <TrustedBy />
 
       {/* ================= CTA ================= */}
 
@@ -396,7 +397,7 @@ export default function Home() {
           <span className="font-mono text-[11px] uppercase tracking-[0.35em] text-primary">
             LET&apos;S BUILD SOMETHING
           </span>
-          
+
           <h2 className="mt-6 text-4xl font-black leading-tight sm:text-6xl">
             Ready to transform
             <br />

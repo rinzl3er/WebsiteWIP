@@ -146,6 +146,7 @@
   --sidebar-border: var(--border);
   --sidebar-ring: var(--ring);
 }
+
 @layer base {
   * {
     @apply border-border outline-ring/50;
@@ -197,15 +198,11 @@
 
   .grid-lines {
     background-image:
-      linear-gradient(
-        rgba(255,255,255,.04) 1px,
-        transparent 1px
-      ),
-      linear-gradient(
-        90deg,
-        rgba(255,255,255,.04) 1px,
-        transparent 1px
-      );
+      linear-gradient(rgba(255, 255, 255, .04) 1px,
+        transparent 1px),
+      linear-gradient(90deg,
+        rgba(255, 255, 255, .04) 1px,
+        transparent 1px);
     background-size: 48px 48px;
   }
 
@@ -218,23 +215,21 @@
   }
 
   .glass {
-    background: rgba(255,255,255,.04);
+    background: rgba(255, 255, 255, .04);
     backdrop-filter: blur(16px);
   }
 
   .gold-glow {
     box-shadow:
-      0 0 30px rgba(255,215,0,.08),
-      0 0 60px rgba(255,215,0,.04);
+      0 0 30px rgba(255, 215, 0, .08),
+      0 0 60px rgba(255, 215, 0, .04);
   }
 
   .hero-gradient {
     background:
-      radial-gradient(
-        circle at top,
-        rgba(255,215,0,.08),
-        transparent 55%
-      );
+      radial-gradient(circle at top,
+        rgba(255, 215, 0, .08),
+        transparent 55%);
   }
 
   .card-hover {
@@ -248,7 +243,7 @@
     transform: translateY(-6px);
     border-color: var(--primary);
     box-shadow:
-      0 12px 35px rgba(0,0,0,.45);
+      0 12px 35px rgba(0, 0, 0, .45);
   }
 
   .btn-yellow {
@@ -277,4 +272,19 @@
 
 ::-webkit-scrollbar-thumb:hover {
   filter: brightness(1.1);
+}
+
+@keyframes marquee {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+@layer utilities {
+  .animate-marquee {
+    animation: marquee 50s linear infinite;
+  }
+  
+  .animate-marquee-reverse {
+    animation: marquee 50s linear infinite reverse;
+  }
 }

@@ -104,6 +104,7 @@ export default function ContactPage() {
                   src="/assets/mumbai_map_preview_clean.png"
                   alt="Office location map preview"
                   fill
+                  sizes="(max-width: 768px) 100vw, 50vw"
                   className="object-cover transition-transform duration-500 group-hover:scale-[1.02]"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent opacity-85 transition-opacity duration-300 group-hover:opacity-70" />

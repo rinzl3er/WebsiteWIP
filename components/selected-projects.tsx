@@ -50,7 +50,7 @@ export function SelectedProjects() {
   return (
     <section className="py-24 lg:py-32 bg-background relative overflow-hidden border-t border-border">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        
+
         <motion.div {...revealProps} className="mb-10 flex flex-col md:flex-row md:items-end justify-between gap-6">
           <div>
             <span className="font-mono text-[11px] uppercase tracking-[0.3em] text-primary">
@@ -60,7 +60,7 @@ export function SelectedProjects() {
               A Selection of <span className="text-primary">Our Work</span>
             </h2>
           </div>
-          
+
           <div className="flex items-center gap-6">
             <div className="font-mono text-sm tracking-widest text-muted-foreground">
               {String(currentIndex + 1).padStart(2, "0")} / {String(showcaseProjects.length).padStart(2, "0")}

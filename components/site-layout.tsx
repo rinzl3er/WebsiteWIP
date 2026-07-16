@@ -350,20 +350,32 @@ export function PageHeader({
   className = "bg-ink",
   showGridLines = true,
   showBorder = true,
+  glowPosition = "right",
+  animateGlow = false,
 }: {
   eyebrow: string;
-  title: string;
+  title: ReactNode;
   intro?: string;
   className?: string;
   showGridLines?: boolean;
   showBorder?: boolean;
+  glowPosition?: "right" | "center" | "none";
+  animateGlow?: boolean;
 }) {
   return (
     <section className={`relative overflow-hidden ${showBorder ? "border-b border-border/60" : ""} ${className}`}>
 
       {showGridLines && <div className="grid-lines absolute inset-0 opacity-60" />}
 
-      <div className="absolute -top-32 right-0 h-96 w-96 rounded-full bg-primary/10 blur-3xl" />
+      {glowPosition !== "none" && (
+        <div className={`absolute top-[-8rem] ${glowPosition === "center" ? "left-1/2 -translate-x-1/2" : "right-0"}`}>
+          <motion.div 
+            className="h-96 w-96 rounded-full bg-primary/10 blur-3xl"
+            animate={animateGlow ? { x: [-30, 30, -30], y: [-20, 20, -20] } : undefined}
+            transition={animateGlow ? { duration: 10, repeat: Infinity, ease: "easeInOut" } : undefined}
+          />
+        </div>
+      )}
 
       <div className="relative mx-auto max-w-7xl px-4 py-20 sm:px-6 lg:px-8 lg:py-28">
 

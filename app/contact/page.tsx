@@ -3,6 +3,8 @@ import Image from "next/image";
 import type { ReactNode } from "react";
 import { FaEnvelope, FaFacebookF, FaInstagram, FaMapMarkerAlt, FaPhone, FaWhatsapp, FaYoutube } from "react-icons/fa";
 import { PageHeader, SiteLayout } from "@/components/site-layout";
+import { Particles } from "@/components/particles";
+import { MetallicSweep } from "@/components/metallic-sweep";
 
 export const metadata: Metadata = {
   title: "Contact — Chintan Patel",
@@ -22,13 +24,23 @@ const socialLinks = [
 export default function ContactPage() {
   return (
     <SiteLayout>
+      <Particles className="-z-10" />
       <PageHeader
+        className="bg-transparent"
+        showGridLines={false}
+        showBorder={false}
+        glowPosition="center"
+        animateGlow={true}
         eyebrow="Contact"
-        title="Let's design extraordinary spaces."
+        title={
+          <>
+            Let&apos;s design <MetallicSweep>extraordinary</MetallicSweep> spaces.
+          </>
+        }
         intro="Share your brief, plans, or vision. We'll help you create experiences that leave a lasting impression."
       />
 
-      <section className="py-16 lg:py-24">
+      <section className="relative z-10 py-16 lg:py-24">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="grid gap-4 sm:grid-cols-3">
             <a href="tel:+919819180642" className="group flex flex-col gap-4 border border-border bg-ink-soft p-7 transition-all duration-300 hover:border-primary hover:bg-ink">

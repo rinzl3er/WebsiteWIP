@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { useState, useEffect, useRef } from "react";
+import { useState } from "react";
 import { motion } from "framer-motion";
 
 import {
@@ -147,65 +147,12 @@ function ServiceCard({
   );
 }
 
-const bgImages = [
-  { src: "/Site images/Yellow Lights School for Performing Arts, Thane A.jpg", alt: "Large Auditorium" },
-  { src: "/assets/home_theatre.png", alt: "Home Theatre" },
-  { src: "/assets/recording_studio.png", alt: "Recording Studio" },
-  { src: "/Site images/Poddar House, Mumbai C.jpg", alt: "Luxury Residence" },
-  { src: "/Site images/Playboy Club Mumbai A.jpg", alt: "Hospitality Club" }
-];
-
-function usePrefersReducedMotion() {
-  const [prefersReducedMotion, setPrefersReducedMotion] = useState(false);
-
-  useEffect(() => {
-    const mediaQuery = window.matchMedia("(prefers-reduced-motion: reduce)");
-    setPrefersReducedMotion(mediaQuery.matches);
-
-    const listener = (event: MediaQueryListEvent) => {
-      setPrefersReducedMotion(event.matches);
-    };
-
-    mediaQuery.addEventListener("change", listener);
-    return () => mediaQuery.removeEventListener("change", listener);
-  }, []);
-
-  return prefersReducedMotion;
-}
 
 export default function Home() {
   const [expandedService, setExpandedService] =
     useState<string | null>(null);
 
-  const ctaSectionRef = useRef<HTMLDivElement>(null);
-  const [isCtaVisible, setIsCtaVisible] = useState(false);
-  const prefersReducedMotion = usePrefersReducedMotion();
-  const [currentCtaIndex, setCurrentCtaIndex] = useState(0);
 
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        setIsCtaVisible(entry.isIntersecting);
-      },
-      { threshold: 0.05 }
-    );
-
-    if (ctaSectionRef.current) {
-      observer.observe(ctaSectionRef.current);
-    }
-
-    return () => observer.disconnect();
-  }, []);
-
-  useEffect(() => {
-    if (!isCtaVisible || prefersReducedMotion) return;
-
-    const interval = setInterval(() => {
-      setCurrentCtaIndex((prev) => (prev + 1) % bgImages.length);
-    }, 9000);
-
-    return () => clearInterval(interval);
-  }, [isCtaVisible, prefersReducedMotion]);
 
   return (
     <SiteLayout>
@@ -359,35 +306,7 @@ export default function Home() {
 
       {/* ================= CTA ================= */}
 
-      <section ref={ctaSectionRef} className="relative z-0 overflow-hidden border-t border-border py-28">
-
-        {/* Cinematic background slideshow */}
-        <div className="absolute inset-0 z-0">
-          {bgImages.map((img, index) => {
-            const isFirst = index === 0;
-            return (
-              <div
-                key={img.src}
-                className="absolute inset-0 transition-opacity duration-[2000ms] ease-in-out"
-                style={{
-                  opacity: prefersReducedMotion ? (isFirst ? 1 : 0) : (index === currentCtaIndex ? 1 : 0)
-                }}
-              >
-                <Image
-                  src={img.src}
-                  alt={img.alt}
-                  fill
-                  priority={isFirst}
-                  loading={isFirst ? undefined : "lazy"}
-                  className="object-cover scale-110 blur-[20px] brightness-[0.35] saturate-[0.85] select-none pointer-events-none"
-                />
-              </div>
-            );
-          })}
-        </div>
-
-        {/* Dark overlay to ensure text readability */}
-        <div className="absolute inset-0 bg-black/85 md:bg-black/75 z-10" />
+      <section className="relative z-0 overflow-hidden border-t border-border py-28">
 
         {/* Grid lines overlay */}
         <div className="grid-lines absolute inset-0 opacity-30 z-20" />

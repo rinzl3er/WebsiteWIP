@@ -3,7 +3,6 @@ import Link from "next/link";
 import { FaArrowRight } from "react-icons/fa";
 import { PageHeader, SiteLayout } from "@/components/site-layout";
 import { Particles } from "@/components/particles";
-import { DustUnderline } from "@/components/dust-underline";
 
 export const metadata: Metadata = {
   title: "About — Chintan Patel Acoustics, Lighting & AV",
@@ -93,7 +92,7 @@ export default function AboutPage() {
       {/* ── CTA ── */}
       <section className="relative z-10 py-24">
         <div className="mx-auto flex max-w-5xl flex-col items-start gap-8 px-4 sm:px-6 md:flex-row md:items-center md:justify-between lg:px-8">
-          <h2 className="text-3xl font-black sm:text-4xl">Bring us in early. <DustUnderline><span className="text-primary">Save time later.</span></DustUnderline></h2>
+          <h2 className="text-3xl font-black sm:text-4xl">Bring us in early. <span className="text-primary">Save time later.</span></h2>
           <Link href="/contact" className="group inline-flex shrink-0 items-center gap-3 border-2 border-primary bg-primary px-6 py-3.5 font-mono text-xs uppercase tracking-[0.2em] text-primary-foreground transition-colors hover:bg-transparent hover:text-primary">Talk to us <FaArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" /></Link>
         </div>
       </section>

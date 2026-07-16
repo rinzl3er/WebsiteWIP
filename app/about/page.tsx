@@ -14,16 +14,16 @@ export const metadata: Metadata = {
 
 const capabilities = ["Room acoustic modelling & treatment", "Sound isolation & noise control", "Home theatre design & calibration", "Auditorium & worship space acoustics", "Architectural & decorative lighting", "MADRIX pixel-mapped LED control", "AV integration & boardroom automation", "Line-array & distributed audio systems"];
 const domains = [
-  { label: "Acoustics", desc: "Studios, clubs, restaurants, pubs, bars and home theatres." },
-  { label: "Architectural Lighting", desc: "Spaces that need a strong visual character and precise control." },
-  { label: "AV Integration", desc: "Audio/video consulting coordinated with the installation team." },
-  { label: "MADRIX", desc: "Software-driven pixel-mapped LED lighting control." },
+  { label: "ENGINEERING FOUNDATION", desc: "An electrical engineering foundation informs a precise, systems-led approach to every space." },
+  { label: "CROSS-DISCIPLINARY", desc: "Experience across acoustics, lighting and AV allows each discipline to be considered together." },
+  { label: "DESIGN COLLABORATION", desc: "Works closely with architects, designers and project teams from concept through execution." },
+  { label: "PAN-INDIA PRACTICE", desc: "Project experience across India spanning residential, hospitality and entertainment spaces." },
 ];
 
 export default function AboutPage() {
   return (
     <SiteLayout>
-      <PageHeader eyebrow="About us" title="A studio for spaces that sound and look their best." intro="We are an independent design and integration studio working at the intersection of acoustics, architectural lighting and audio-visual systems. We work with architects, hospitality groups, homeowners and venues across India." />
+      <PageHeader eyebrow="About us" title="Where sound, light and space come together." intro="We work across acoustics, architectural lighting and audio visual design to shape spaces as complete experiences. From private residences to hospitality and performance venues, each project begins with the space itself." />
 
       <section className="py-20 lg:py-28">
         <div className="mx-auto grid max-w-7xl gap-16 px-4 sm:px-6 lg:grid-cols-2 lg:px-8">
@@ -31,7 +31,7 @@ export default function AboutPage() {
             <span className="font-mono text-[11px] uppercase tracking-[0.3em] text-primary">/ Practice</span>
             <h2 className="mt-4 text-3xl font-black leading-tight sm:text-4xl">Sound, light and image — treated as one discipline.</h2>
             <div className="mt-6 space-y-5 text-muted-foreground">
-              <p>Most spaces are stitched together from separate vendors: an acoustics team, a lighting contractor, an AV integrator. The result is often three systems that don&apos;t quite know each other.</p>
+              <p>Too often, acoustics, lighting and AV are designed in isolation. The result is a space shaped by separate systems rather than a singular vision.</p>
               <p>We work differently. One studio owns the whole environment: the room&apos;s acoustic behaviour, the way light moves through it, and the AV systems that live inside it, so every layer supports the others.</p>
               <p>With <span className="text-emerald-600">MADRIX</span> as our official dealer and consultant, we specialise in software-driven LED lighting control alongside our acoustic and AV work.</p>
             </div>

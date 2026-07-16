@@ -15,6 +15,7 @@ import {
 
 import { SiteLayout } from "@/components/site-layout";
 import { TrustedBy } from "@/components/trusted-by";
+import { SelectedProjects } from "@/components/selected-projects";
 import {
   revealProps,
   staggerContainer,
@@ -264,12 +265,9 @@ export default function Home() {
               {...revealProps}
               className="mt-8 max-w-2xl text-lg leading-8 text-muted-foreground"
             >
-              Professional consultancy, design and execution for
-              acoustics, architectural lighting and integrated
-              audio visual systems.
-
-              Every project is engineered to look exceptional,
-              sound incredible and perform flawlessly.
+              We shape how spaces are seen, heard and experienced.
+              Acoustics, light and sound considered together,
+              from design through execution.
             </motion.p>
 
             <motion.div
@@ -354,6 +352,10 @@ export default function Home() {
       {/* ================= TRUSTED BY ================= */}
 
       <TrustedBy />
+
+      {/* ================= SELECTED PROJECTS ================= */}
+      
+      <SelectedProjects />
 
       {/* ================= CTA ================= */}
 

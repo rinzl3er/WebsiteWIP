@@ -2,6 +2,8 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { FaArrowRight } from "react-icons/fa";
 import { PageHeader, SiteLayout } from "@/components/site-layout";
+import { Particles } from "@/components/particles";
+import { DustUnderline } from "@/components/dust-underline";
 
 export const metadata: Metadata = {
   title: "About — Chintan Patel Acoustics, Lighting & AV",
@@ -13,19 +15,14 @@ export const metadata: Metadata = {
 };
 
 const capabilities = ["Room acoustic modelling & treatment", "Sound isolation & noise control", "Home theatre design & calibration", "Auditorium & worship space acoustics", "Architectural & decorative lighting", "MADRIX pixel-mapped LED control", "AV integration & boardroom automation", "Line-array & distributed audio systems"];
-const domains = [
-  { label: "ENGINEERING FOUNDATION", desc: "An electrical engineering foundation informs a precise, systems-led approach to every space." },
-  { label: "CROSS-DISCIPLINARY", desc: "Experience across acoustics, lighting and AV allows each discipline to be considered together." },
-  { label: "DESIGN COLLABORATION", desc: "Works closely with architects, designers and project teams from concept through execution." },
-  { label: "PAN-INDIA PRACTICE", desc: "Project experience across India spanning residential, hospitality and entertainment spaces." },
-];
 
 export default function AboutPage() {
   return (
     <SiteLayout>
-      <PageHeader eyebrow="About us" title="Where sound, light and space come together." intro="We work across acoustics, architectural lighting and audio visual design to shape spaces as complete experiences. From private residences to hospitality and performance venues, each project begins with the space itself." />
+      <Particles className="-z-10" />
+      <PageHeader className="bg-transparent" showGridLines={false} showBorder={false} eyebrow="About us" title="Where sound, light and space come together." intro="We work across acoustics, architectural lighting and audio visual design to shape spaces as complete experiences. From private residences to hospitality and performance venues, each project begins with the space itself." />
 
-      <section className="py-20 lg:py-28">
+      <section className="relative z-10 py-20 lg:py-28">
         <div className="mx-auto grid max-w-7xl gap-16 px-4 sm:px-6 lg:grid-cols-2 lg:px-8">
           <div>
             <span className="font-mono text-[11px] uppercase tracking-[0.3em] text-primary">/ Practice</span>
@@ -45,10 +42,13 @@ export default function AboutPage() {
         </div>
       </section>
 
-      <section className="border-t border-border/60 bg-ink py-20 lg:py-28">
+      {/* ── Meet the Founder ── */}
+      <section className="relative z-10 bg-transparent py-16 lg:py-24">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <span className="font-mono text-[11px] uppercase tracking-[0.3em] text-primary">/ Meet the Founder</span>
-          <div className="mt-10 grid gap-12 lg:grid-cols-[420px_1fr] lg:items-start lg:gap-16">
+
+          <div className="mt-10 grid gap-12 lg:grid-cols-[420px_1fr] lg:items-start lg:gap-12">
+            {/* Portrait */}
             <div className="group relative overflow-hidden rounded-2xl border border-primary/30 shadow-[0_24px_70px_rgba(0,0,0,0.55)]">
               <img src="/assets/Chintanportrait.jpg" alt="Chintan Patel portrait" className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-[1.03]" />
               <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-ink via-ink/80 to-transparent px-7 pb-7 pt-20">
@@ -56,30 +56,47 @@ export default function AboutPage() {
                 <p className="mt-2 font-mono text-[10px] uppercase tracking-[0.28em] text-primary/80">Founder &amp; Principal Consultant</p>
               </div>
             </div>
-            <div className="flex flex-col gap-10">
-              <div className="grid gap-8 sm:grid-cols-2">
-                <Bio title="Introduction">Chintan is an electrical engineer with experience in acoustics, sound and lighting. A one-stop consultant for audio/video, lighting design and acoustic works across a wide range of projects.</Bio>
-                <Bio title="Design Philosophy">He balances detail, character and fundamentals — working closely with architects, manufacturers and installation teams to achieve seamless integration of technologies.</Bio>
-                <Bio title="Industry Experience" className="sm:col-span-2">His projects range from home theatres to restaurants, clubs, hotels and luxury homes, moving between minimalist, rich ornate classic and vibrant styles.</Bio>
+
+            {/* Editorial text */}
+            <div className="flex flex-col">
+              {/* Accent line */}
+              <div className="h-px w-12 bg-primary/50" />
+
+              {/* Pull-quote — real sentence from bio */}
+              <blockquote className="mt-8 text-xl font-bold leading-snug tracking-tight text-foreground sm:text-2xl lg:text-[1.65rem] lg:leading-[1.3]">
+                &ldquo;He balances detail, character and fundamentals — working closely with architects, manufacturers and installation teams to achieve seamless integration of technologies.&rdquo;
+              </blockquote>
+
+              {/* Editorial prose */}
+              <div className="mt-8 space-y-5 text-sm leading-relaxed text-muted-foreground">
+                <p>
+                  Chintan is an electrical engineer whose foundation in systems-led thinking shapes every project he touches. As a one-stop consultant for audio, video, lighting design and acoustic works, he brings a rare cross-disciplinary perspective — one where sound, light and technology are considered together from day one.
+                </p>
+                <p>
+                  His projects range from home theatres to restaurants, clubs, hotels and luxury homes, moving between minimalist, rich ornate classic and vibrant styles. Whether the brief calls for an intimate listening room or a large-scale hospitality venue, the approach remains the same: start with the space, understand how it will be experienced, and let that guide every technical decision.
+                </p>
               </div>
-              <div className="grid grid-cols-2 gap-3 xl:grid-cols-4">
-                {domains.map((domain) => <div key={domain.label} className="flex flex-col gap-2 rounded-xl border border-border bg-ink-soft p-5 transition-colors duration-300 hover:border-primary/50"><p className="font-mono text-[9px] uppercase tracking-[0.28em] text-primary">{domain.label}</p><p className="text-xs leading-relaxed text-muted-foreground">{domain.desc}</p></div>)}
+
+              {/* Disciplines row */}
+              <div className="mt-10 flex flex-wrap gap-3">
+                {["Acoustics", "Lighting Design", "AV Integration", "MADRIX Control"].map((d) => (
+                  <span key={d} className="border border-border/60 px-4 py-2 font-mono text-[10px] uppercase tracking-[0.25em] text-muted-foreground transition-colors duration-300 hover:border-primary/50 hover:text-primary">
+                    {d}
+                  </span>
+                ))}
               </div>
             </div>
           </div>
         </div>
       </section>
 
-      <section className="py-24">
+      {/* ── CTA ── */}
+      <section className="relative z-10 py-24">
         <div className="mx-auto flex max-w-5xl flex-col items-start gap-8 px-4 sm:px-6 md:flex-row md:items-center md:justify-between lg:px-8">
-          <h2 className="text-3xl font-black sm:text-4xl">Bring us in early. <span className="text-primary">Save time later.</span></h2>
+          <h2 className="text-3xl font-black sm:text-4xl">Bring us in early. <DustUnderline><span className="text-primary">Save time later.</span></DustUnderline></h2>
           <Link href="/contact" className="group inline-flex shrink-0 items-center gap-3 border-2 border-primary bg-primary px-6 py-3.5 font-mono text-xs uppercase tracking-[0.2em] text-primary-foreground transition-colors hover:bg-transparent hover:text-primary">Talk to us <FaArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" /></Link>
         </div>
       </section>
     </SiteLayout>
   );
-}
-
-function Bio({ title, children, className = "" }: { title: string; children: React.ReactNode; className?: string }) {
-  return <div className={className}><p className="font-mono text-[10px] uppercase tracking-[0.28em] text-primary/80">{title}</p><div className="mt-3 h-px w-8 bg-primary/40" /><p className="mt-4 text-sm leading-relaxed text-muted-foreground">{children}</p></div>;
 }

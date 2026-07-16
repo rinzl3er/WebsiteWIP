@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { PageHeader, SiteLayout } from "@/components/site-layout";
+import { Particles } from "@/components/particles";
 
 export const metadata: Metadata = {
   title: "Projects — Chintan Patel",
@@ -50,9 +51,10 @@ const images = [
 export default function ProjectsPage() {
   return (
     <SiteLayout>
-      <PageHeader eyebrow="Projects" title="Projects" intro="Browse completed projects through our image and video galleries." />
+      <Particles className="-z-10" />
+      <PageHeader className="bg-transparent" showGridLines={false} showBorder={false} eyebrow="Projects" title="Projects" intro="Browse completed projects through our image and video galleries." />
 
-      <section id="videos" className="py-20">
+      <section id="videos" className="relative z-10 py-20">
         <div className="mx-auto max-w-[1700px] px-6">
           <div className="mb-8 flex flex-wrap items-center justify-between gap-4">
             <h2 className="text-3xl font-bold">Video Gallery</h2>
@@ -70,7 +72,7 @@ export default function ProjectsPage() {
         </div>
       </section>
 
-      <section id="images" className="py-10">
+      <section id="images" className="relative z-10 py-10">
         <div className="mx-auto max-w-7xl px-6">
           <div className="mb-8 flex flex-wrap items-center justify-between gap-4">
             <h2 className="text-3xl font-bold">Image Gallery</h2>

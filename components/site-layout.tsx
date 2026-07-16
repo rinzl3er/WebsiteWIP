@@ -188,7 +188,7 @@ function Header() {
 }
 function Footer() {
   return (
-    <footer className="border-t border-border/60 bg-ink">
+    <footer className="relative z-20 border-t border-border/60 bg-ink">
       <div className="mx-auto grid max-w-7xl gap-10 px-4 py-16 sm:px-6 lg:grid-cols-[minmax(0,1.35fr)_minmax(0,1.35fr)_max-content_max-content] lg:gap-x-10 lg:px-8">
 
         <div>
@@ -347,15 +347,21 @@ export function PageHeader({
   eyebrow,
   title,
   intro,
+  className = "bg-ink",
+  showGridLines = true,
+  showBorder = true,
 }: {
   eyebrow: string;
   title: string;
   intro?: string;
+  className?: string;
+  showGridLines?: boolean;
+  showBorder?: boolean;
 }) {
   return (
-    <section className="relative overflow-hidden border-b border-border/60 bg-ink">
+    <section className={`relative overflow-hidden ${showBorder ? "border-b border-border/60" : ""} ${className}`}>
 
-      <div className="grid-lines absolute inset-0 opacity-60" />
+      {showGridLines && <div className="grid-lines absolute inset-0 opacity-60" />}
 
       <div className="absolute -top-32 right-0 h-96 w-96 rounded-full bg-primary/10 blur-3xl" />
 

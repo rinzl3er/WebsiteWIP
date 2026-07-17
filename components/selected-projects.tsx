@@ -62,7 +62,7 @@ export function SelectedProjects() {
           </div>
 
           <div className="flex items-center gap-6">
-            <div className="font-mono text-sm tracking-widest text-muted-foreground">
+            <div className="font-mono text-base tracking-widest text-muted-foreground">
               {String(currentIndex + 1).padStart(2, "0")} / {String(showcaseProjects.length).padStart(2, "0")}
             </div>
             <div className="flex items-center gap-3">
@@ -107,7 +107,7 @@ export function SelectedProjects() {
                 <h3 className="text-2xl md:text-4xl font-bold text-white drop-shadow-lg">
                   {currentProject.venue}
                 </h3>
-                <p className="mt-2 text-sm md:text-base text-white/80 font-medium tracking-wide drop-shadow-md uppercase">
+                <p className="mt-2 text-base md:text-lg text-white/80 font-medium tracking-wide drop-shadow-md uppercase">
                   📍 {currentProject.location}
                 </p>
               </div>

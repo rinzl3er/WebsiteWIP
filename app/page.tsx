@@ -11,6 +11,7 @@ import {
   Lightbulb,
   MonitorPlay,
   Volume2,
+  Armchair,
 } from "lucide-react";
 
 import { SiteLayout } from "@/components/site-layout";
@@ -21,6 +22,7 @@ import {
   staggerContainer,
   staggerItem,
 } from "@/lib/motion";
+import { useRouter } from "next/navigation";
 
 const heroImage = "/assets/hero.jpg";
 
@@ -48,9 +50,17 @@ const services = [
     title: "Audio Visual",
     tag: "When AV matters",
     desc:
-      "Projection, displays, distributed audio and complete AV integration.",
+      "Professional AV systems designed for reliability, ease of operation and outstanding presentation quality.",
     overview:
       "Professional AV systems designed for reliability, ease of operation and outstanding presentation quality.",
+  },
+  {
+    icon: Armchair,
+    title: "Interiors",
+    tag: "WHEN DESIGN MATTERS",
+    desc: "Residential and commercial interior spaces thoughtfully designed with architecture, lighting, acoustics and functionality in perfect balance.",
+    overview: "Residential and commercial interior spaces thoughtfully designed with architecture, lighting, acoustics and functionality in perfect balance.",
+    href: "/interiors",
   },
 ];
 
@@ -67,13 +77,14 @@ function ServiceCard({
   anyExpanded: boolean;
   onToggle: () => void;
 }) {
-  const { icon: Icon, title, tag, desc, overview } = service;
+  const { icon: Icon, title, tag, desc, overview, href } = service;
+  const router = useRouter();
 
   return (
     <motion.article
       {...staggerItem}
       layout
-      onClick={!expanded ? onToggle : undefined}
+      onClick={href ? () => router.push(href) : !expanded ? onToggle : undefined}
       className={`relative overflow-hidden border bg-ink-soft transition-all duration-500 cursor-pointer ${expanded
         ? "rounded-3xl border-primary p-8 lg:flex-[3]"
         : anyExpanded
@@ -94,7 +105,7 @@ function ServiceCard({
       )}
 
       {!expanded && (
-        <div className="absolute right-5 top-5 h-2 w-2 rounded-full bg-primary opacity-0 group-hover:opacity-100" />
+        <div className="absolute right-5 top-5 h-2 w-2 rounded-full bg-primary opacity-0 group-hover:opacity-100 transition-opacity" />
       )}
 
       <div
@@ -223,7 +234,7 @@ export default function Home() {
             >
               <Link
                 href="/projects"
-                className="group inline-flex items-center gap-3 border-2 border-primary bg-primary px-7 py-4 font-mono text-xs uppercase tracking-[0.2em] text-primary-foreground transition-all hover:bg-transparent hover:text-primary"
+                className="group inline-flex items-center gap-3 border-2 border-primary bg-primary px-7 py-4 font-mono text-sm uppercase tracking-[0.2em] text-primary-foreground transition-all hover:bg-transparent hover:text-primary"
               >
                 View Projects
 
@@ -232,7 +243,7 @@ export default function Home() {
 
               <Link
                 href="/contact"
-                className="inline-flex items-center border border-border px-7 py-4 font-mono text-xs uppercase tracking-[0.2em] transition-colors hover:border-primary hover:text-primary"
+                className="inline-flex items-center border border-border px-7 py-4 font-mono text-sm uppercase tracking-[0.2em] transition-colors hover:border-primary hover:text-primary"
               >
                 Contact Us
               </Link>
@@ -275,7 +286,7 @@ export default function Home() {
 
           <motion.div
             {...staggerContainer}
-            className={`mt-14 flex flex-col gap-5 lg:flex-row ${expandedService ? "lg:gap-0" : ""
+            className={`mt-14 gap-5 ${expandedService ? "flex flex-col lg:flex-row lg:gap-0" : "grid grid-cols-1 md:grid-cols-2 lg:flex lg:flex-row"
               }`}
           >
             {services.map((service) => (
@@ -340,7 +351,7 @@ export default function Home() {
 
             <Link
               href="/contact"
-              className="group inline-flex items-center gap-3 border-2 border-primary bg-primary px-8 py-4 font-mono text-xs uppercase tracking-[0.2em] text-primary-foreground transition-all hover:bg-transparent hover:text-primary"
+              className="group inline-flex items-center gap-3 border-2 border-primary bg-primary px-8 py-4 font-mono text-sm uppercase tracking-[0.2em] text-primary-foreground transition-all hover:bg-transparent hover:text-primary"
             >
               Start Your Project
 
@@ -348,8 +359,8 @@ export default function Home() {
             </Link>
 
             <Link
-              href="/projects"
-              className="inline-flex items-center border border-border px-8 py-4 font-mono text-xs uppercase tracking-[0.2em] transition-colors hover:border-primary hover:text-primary"
+              href="/gallery"
+              className="inline-flex items-center border border-border px-8 py-4 font-mono text-sm uppercase tracking-[0.2em] transition-colors hover:border-primary hover:text-primary"
             >
               View Portfolio
             </Link>

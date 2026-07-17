@@ -35,7 +35,7 @@ export default function AboutPage() {
           <div className="border border-border bg-ink-soft p-8 sm:p-10">
             <h3 className="font-mono text-[11px] uppercase tracking-[0.25em] text-primary">/ Capabilities</h3>
             <ul className="mt-6 grid gap-3 sm:grid-cols-2">
-              {capabilities.map((capability) => <li key={capability} className="flex items-start gap-3 text-sm text-foreground"><span className="mt-2 h-1 w-1 shrink-0 rounded-full bg-primary" /><span>{capability}</span></li>)}
+              {capabilities.map((capability) => <li key={capability} className="flex items-start gap-3 text-base text-foreground"><span className="mt-2 h-1 w-1 shrink-0 rounded-full bg-primary" /><span>{capability}</span></li>)}
             </ul>
           </div>
         </div>
@@ -67,7 +67,7 @@ export default function AboutPage() {
               </blockquote>
 
               {/* Editorial prose */}
-              <div className="mt-8 space-y-5 text-sm leading-relaxed text-muted-foreground">
+              <div className="mt-8 space-y-5 text-base leading-relaxed text-muted-foreground">
                 <p>
                   Chintan is an electrical engineer whose foundation in systems-led thinking shapes every project he touches. As a one-stop consultant for audio, video, lighting design and acoustic works, he brings a rare cross-disciplinary perspective — one where sound, light and technology are considered together from day one.
                 </p>
@@ -93,7 +93,7 @@ export default function AboutPage() {
       <section className="relative z-10 py-24">
         <div className="mx-auto flex max-w-5xl flex-col items-start gap-8 px-4 sm:px-6 md:flex-row md:items-center md:justify-between lg:px-8">
           <h2 className="text-3xl font-black sm:text-4xl">Bring us in early. <span className="text-primary">Save time later.</span></h2>
-          <Link href="/contact" className="group inline-flex shrink-0 items-center gap-3 border-2 border-primary bg-primary px-6 py-3.5 font-mono text-xs uppercase tracking-[0.2em] text-primary-foreground transition-colors hover:bg-transparent hover:text-primary">Talk to us <FaArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" /></Link>
+          <Link href="/contact" className="group inline-flex shrink-0 items-center gap-3 border-2 border-primary bg-primary px-6 py-3.5 font-mono text-sm uppercase tracking-[0.2em] text-primary-foreground transition-colors hover:bg-transparent hover:text-primary">Talk to us <FaArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" /></Link>
         </div>
       </section>
     </SiteLayout>

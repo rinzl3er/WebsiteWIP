@@ -1,96 +1,153 @@
-import type { Metadata } from "next";
 import { PageHeader, SiteLayout } from "@/components/site-layout";
-import { Particles } from "@/components/particles";
+import { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Projects — Chintan Patel",
-  description:
-    "Watch installations, tuning sessions and completed acoustics, lighting and AV projects.",
-  openGraph: {
-    title: "Projects — Chintan Patel",
-    description:
-      "Video gallery showcasing acoustics, lighting, home theatre and AV installations.",
-  },
+  title: "Projects | Chintan Patel",
+  description: "A comprehensive list of our installations and projects across the globe.",
 };
 
-const videos = [
-  "kNJRmYJ9ruM", "Lubpz4J9-nw", "Qj-EpqxQZzI", "bhxlW1gYSCo", "wyJCqE11Vc4",
-  "xtDlPFU3QrU", "6fEDYFbInlI", "wqueoSh76Ks", "VlRLfoGH2Vg", "lmLkEd9wPUU",
-  "DnXMBgXgYAg", "HMGml4fadBA", "JaM3jvKFK2M",
+const locations = [
+  {
+    name: "Coming Soon...",
+    projects: ["Tinsukia", "Abidjan", "Goa", "Banglore", "Hyderabad", "Bareilly", "Mumbai", "Prayagraj", "Pune"]
+  },
+  {
+    name: "Mumbai",
+    projects: [
+      "Lucy Lou", "Megumi", "Goose and the Gridiron", "House of Lords", "Glitte", 
+      "Oh Pitara", "Spice Laundry", "Tafe", "145", "Drunkyard", "Playboy Club Mumbai", 
+      "Sin City", "B-Kitchen & Bar", "Hammer & Song", "Invincible", "Tap, Worli", 
+      "The Yellow Lights School of Performing Arts", "...Many More"
+    ]
+  },
+  {
+    name: "Hyderabad",
+    projects: [
+      "Marquee", "King'dome", "Toggo", "Karimnagar Cable Bridge", "Crossbreed", 
+      "Nicos", "Heart Cup Coffee, Gachibowli", "Airlive, Gachibowli", "Skyhy", 
+      "Berlin", "Birdbox", "T-Hub", "Raasta", "Animal Park"
+    ]
+  },
+  {
+    name: "Delhi",
+    projects: ["Oso", "Soho Club", "Privee"]
+  },
+  {
+    name: "Pune",
+    projects: ["Opus", "Sky Stories", "Penthouze NIBM", "Backstage"]
+  },
+  {
+    name: "Goa",
+    projects: ["Sarabi", "Artistry", "Kiki By The Sea", "Toy Beach Club", "Soho"]
+  },
+  {
+    name: "Africa",
+    projects: ["Trafic, Bamako & Dakar", "Le Nabini, Dakar"]
+  },
+  {
+    name: "Lucknow",
+    projects: ["Farzi Cafe", "Que", "Kaleidoscope"]
+  },
+  {
+    name: "Jaipur",
+    projects: ["Blackout", "Zarza"]
+  },
+  {
+    name: "Kolkata",
+    projects: ["Hashtag", "PPT", "Carpe Diem", "Raasta"]
+  },
+  {
+    name: "Siliguri",
+    projects: ["Terytree", "Hashtag", "Open House", "Dugout", "Lord of the Drinks"]
+  },
+  {
+    name: "Ranchi",
+    projects: ["Loop", "Dhunki", "Lod"]
+  },
+  {
+    name: "Guwahati",
+    projects: ["Nyx"]
+  },
+  {
+    name: "Shillong",
+    projects: ["The Yeast Company"]
+  },
+  {
+    name: "Nagpur",
+    projects: ["Raasta"]
+  },
+  {
+    name: "Agra",
+    projects: ["Mansion"]
+  },
+  {
+    name: "Ludhiana",
+    projects: ["Playboy Beer Garden"]
+  },
+  {
+    name: "Sambalpur",
+    projects: ["8 Mad Men"]
+  },
+  {
+    name: "Bhubaneshwar",
+    projects: ["Top Notch"]
+  },
+  {
+    name: "Bareilly",
+    projects: ["Deja Vu"]
+  },
+  {
+    name: "Jabalpur",
+    projects: ["Clava"]
+  },
+  {
+    name: "Rourkela",
+    projects: ["Bolt Brewing Co"]
+  },
+  {
+    name: "Jamshedpur",
+    projects: ["Dugout"]
+  },
+  {
+    name: "Sivsagar",
+    projects: ["Drunk Panda"]
+  },
+  {
+    name: "Bhuj",
+    projects: ["The Villa"]
+  }
 ];
-
-const images = [
-  ["8 Mad Men, Sambalpur A.jpeg", "8 Mad Men", "Sambalpur"],
-  ["Carpe Diem, Kolkata A.jpg", "Carpe Diem", "Kolkata"],
-  ["Clava, Jabalpur A.jpeg", "Clava", "Jabalpur"],
-  ["Hashtag, Siliguri A.jpg", "Hashtag", "Siliguri"],
-  ["Hashtag, Siliguri B.jpg", "Hashtag", "Siliguri"],
-  ["Mansion, Agra A.jpg", "Mansion", "Agra"],
-  ["Mansion, Agra B.jpg", "Mansion", "Agra"],
-  ["NYX, Guwahati A.jpg", "NYX", "Guwahati"],
-  ["NYX, Guwahati B.jpg", "NYX", "Guwahati"],
-  ["NYX, Guwahati C.jpg", "NYX", "Guwahati"],
-  ["Playboy Beer Garden, Ludhiana A.jpeg", "Playboy Beer Garden", "Ludhiana"],
-  ["Playboy Club Mumbai A.jpg", "Playboy Club", "Mumbai"],
-  ["Playboy Club Mumbai B.jpg", "Playboy Club", "Mumbai"],
-  ["Poddar House, Mumbai A.jpg", "Poddar House", "Mumbai"],
-  ["Poddar House, Mumbai B.jpg", "Poddar House", "Mumbai"],
-  ["Poddar House, Mumbai C.jpg", "Poddar House", "Mumbai"],
-  ["Poddar House, Mumbai D.jpg", "Poddar House", "Mumbai"],
-  ["Privee, New Delhi A.jpg", "Privee", "New Delhi"],
-  ["Sea View Pearl, Dapoli A.jpg", "Sea View Pearl", "Dapoli"],
-  ["Sea View Pearl, Dapoli B.jpg", "Sea View Pearl", "Dapoli"],
-  ["Sin City, Mumbai A.jpg", "Sin City", "Mumbai"],
-  ["TeryTree, Siliguri A.jpg", "TeryTree", "Siliguri"],
-  ["TeryTree, Siliguri B.jpg", "TeryTree", "Siliguri"],
-  ["TeryTree, Siliguri C.jpg", "TeryTree", "Siliguri"],
-  ["TeryTree, Siliguri D.jpg", "TeryTree", "Siliguri"],
-  ["Yellow Lights School for Performing Arts, Thane A.jpg", "Yellow Lights School for Performing Arts", "Thane"],
-] as const;
 
 export default function ProjectsPage() {
   return (
     <SiteLayout>
-      <Particles className="-z-10" />
-      <PageHeader className="bg-transparent" showGridLines={false} showBorder={false} eyebrow="Projects" title="Projects" intro="Browse completed projects through our image and video galleries." />
+      <PageHeader
+        eyebrow="Portfolio"
+        title="Our Projects."
+        intro="A comprehensive list of our installations and projects across the globe."
+        glowPosition="center"
+      />
 
-      <section id="videos" className="relative z-10 py-20">
-        <div className="mx-auto max-w-[1700px] px-6">
-          <div className="mb-8 flex flex-wrap items-center justify-between gap-4">
-            <h2 className="text-3xl font-bold">Video Gallery</h2>
-            <a href="#images" className="inline-flex items-center justify-center gap-2 rounded-full bg-primary px-6 py-3 font-medium text-primary-foreground transition hover:opacity-90">📷 <span> Check Image Gallery</span></a>
-          </div>
-          <div className="grid gap-8 lg:grid-cols-3">
-            {videos.map((id, index) => (
-              <div key={id} className="overflow-hidden rounded-2xl border border-border shadow-lg">
-                <div className="aspect-video">
-                  <iframe className="h-full w-full" src={`https://www.youtube.com/embed/${id}`} title={`Project Video ${index + 1}`} loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerPolicy="strict-origin-when-cross-origin" allowFullScreen />
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      <section id="images" className="relative z-10 py-10">
-        <div className="mx-auto max-w-7xl px-6">
-          <div className="mb-8 flex flex-wrap items-center justify-between gap-4">
-            <h2 className="text-3xl font-bold">Image Gallery</h2>
-            <a href="#videos" className="inline-flex items-center justify-center gap-2 rounded-full bg-primary px-6 py-3 font-medium text-primary-foreground transition hover:opacity-90">🎥 <span>Check Video Gallery</span></a>
-          </div>
-          <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-            {images.map(([filename, venue, location]) => (
-              <div key={filename} className="group relative overflow-hidden rounded-xl shadow-lg">
-                <img src={`/site-images/${filename}`} alt={`${venue} - ${location}`} className="h-72 w-full object-cover transition duration-500 group-hover:scale-105" />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent transition-all duration-300 ease-out lg:from-transparent lg:via-transparent lg:to-transparent lg:bg-transparent lg:group-hover:from-black/85 lg:group-hover:via-black/30 lg:group-hover:to-transparent" />
-                <div className="absolute bottom-0 left-0 p-5">
-                  <h3 className="text-lg font-semibold text-white transition-all duration-300 ease-out lg:opacity-0 lg:translate-y-2 lg:group-hover:opacity-100 lg:group-hover:translate-y-0">
-                    {venue}
-                  </h3>
-                  <p className="mt-1 text-sm text-white/80 transition-all duration-300 ease-out lg:opacity-0 lg:translate-y-2 lg:group-hover:opacity-100 lg:group-hover:translate-y-0 lg:group-hover:delay-75">
-                    📍 {location}
-                  </p>
-                </div>
+      <section className="py-20 lg:py-28 relative">
+        <div className="absolute inset-0 bg-ink-dark/50 -z-10" />
+        
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <div className="columns-1 md:columns-2 lg:columns-3 gap-8 space-y-8">
+            {locations.map((location) => (
+              <div 
+                key={location.name} 
+                className="break-inside-avoid border border-border/50 bg-ink-soft/40 p-8 hover:bg-ink-soft/80 hover:border-primary/50 transition-colors duration-300"
+              >
+                <h3 className="font-mono text-xl uppercase tracking-[0.2em] text-primary mb-6">
+                  {location.name}
+                </h3>
+                <ul className="space-y-3">
+                  {location.projects.map((project, idx) => (
+                    <li key={idx} className="text-base text-muted-foreground hover:text-white transition-colors duration-200">
+                      {project}
+                    </li>
+                  ))}
+                </ul>
               </div>
             ))}
           </div>

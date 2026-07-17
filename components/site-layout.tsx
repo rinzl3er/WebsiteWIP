@@ -20,6 +20,7 @@ import { revealProps } from "@/lib/motion";
 const nav = [
   { href: "/", label: "Home" },
   { href: "/about", label: "About" },
+  { href: "/gallery", label: "Gallery" },
   { href: "/projects", label: "Projects" },
   { href: "/contact", label: "Contact" },
 ] as const;
@@ -99,7 +100,7 @@ function Header() {
               <Link
                 key={item.href}
                 href={item.href}
-                className={`group relative px-4 py-2 font-mono text-xs uppercase tracking-[0.2em] transition-colors ${
+                className={`group relative px-4 py-2 font-mono text-sm uppercase tracking-[0.2em] transition-colors ${
                   isActive
                     ? "text-primary"
                     : "text-muted-foreground hover:text-primary"
@@ -120,7 +121,7 @@ function Header() {
 
           <a
             href="tel:+919819180642"
-            className="ml-3 inline-flex items-center gap-2 border border-primary bg-primary px-4 py-2 font-mono text-xs uppercase tracking-[0.2em] text-primary-foreground transition-colors hover:bg-transparent hover:text-primary"
+            className="ml-3 inline-flex items-center gap-2 border border-primary bg-primary px-4 py-2 font-mono text-sm uppercase tracking-[0.2em] text-primary-foreground transition-colors hover:bg-transparent hover:text-primary"
           >
             <FaPhoneAlt className="h-3.5 w-3.5" />
             Enquire
@@ -162,7 +163,7 @@ function Header() {
                   onClick={() =>
                     setOpen(false)
                   }
-                  className={`border-b border-border/40 py-4 font-mono text-sm uppercase tracking-[0.2em] last:border-none ${
+                  className={`border-b border-border/40 py-4 font-mono text-base uppercase tracking-[0.2em] last:border-none ${
                     isActive
                       ? "text-primary"
                       : "text-muted-foreground"
@@ -175,7 +176,7 @@ function Header() {
 
             <a
               href="tel:+919819180642"
-              className="mt-3 mb-2 inline-flex items-center justify-center gap-2 bg-primary py-3 font-mono text-xs uppercase tracking-[0.2em] text-primary-foreground"
+              className="mt-3 mb-2 inline-flex items-center justify-center gap-2 bg-primary py-3 font-mono text-sm uppercase tracking-[0.2em] text-primary-foreground"
             >
               <FaPhoneAlt className="h-3.5 w-3.5" />
               +91 98191 80642
@@ -194,7 +195,7 @@ function Footer() {
         <div>
           <Logo large />
 
-          <p className="mt-6 max-w-md text-sm leading-relaxed text-muted-foreground">
+          <p className="mt-6 max-w-md text-base leading-relaxed text-muted-foreground">
             Design, consultancy & execution for acoustics,
             architectural lighting and visual systems.
           </p>
@@ -215,7 +216,7 @@ function Footer() {
             />
           </a>
 
-          <p className="mt-6 max-w-md text-sm leading-relaxed text-muted-foreground">
+          <p className="mt-6 max-w-md text-base leading-relaxed text-muted-foreground">
             Official dealer & consultant for MADRIX lighting
             control software and pixel-mapped LED control
             supporting DMX512, DVI and Art-Net.
@@ -227,7 +228,7 @@ function Footer() {
             Navigate
           </h4>
 
-          <ul className="mt-5 space-y-3 text-sm">
+          <ul className="mt-5 space-y-3 text-base">
             {nav.map((item) => (
               <li key={item.href}>
                 <Link
@@ -246,7 +247,7 @@ function Footer() {
             Contact
           </h4>
 
-          <ul className="mt-5 space-y-3 text-sm text-muted-foreground">
+          <ul className="mt-5 space-y-3 text-base text-muted-foreground">
 
             <li className="flex items-start gap-2">
               <FaPhoneAlt className="mt-0.5 h-4 w-4 shrink-0 text-primary" />

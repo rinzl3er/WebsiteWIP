@@ -48,7 +48,7 @@ export default function ContactPage() {
               <div>
                 <p className="font-mono text-[10px] uppercase tracking-[0.28em] text-muted-foreground">Call us</p>
                 <p className="mt-1.5 text-lg font-bold tracking-tight text-foreground transition-colors group-hover:text-primary">+91 98191 80642</p>
-                <p className="mt-1 text-xs text-muted-foreground">Mon – Sat, 10 am – 7 pm IST</p>
+                <p className="mt-1 text-sm text-muted-foreground">Mon – Sat, 10 am – 7 pm IST</p>
               </div>
             </a>
 
@@ -57,7 +57,7 @@ export default function ContactPage() {
               <div>
                 <p className="font-mono text-[10px] uppercase tracking-[0.28em] text-muted-foreground">WhatsApp</p>
                 <p className="mt-1.5 text-lg font-bold tracking-tight text-foreground transition-colors group-hover:text-primary">Message us</p>
-                <p className="mt-1 text-xs text-muted-foreground">Quick replies on WhatsApp</p>
+                <p className="mt-1 text-sm text-muted-foreground">Quick replies on WhatsApp</p>
               </div>
             </a>
 
@@ -66,7 +66,7 @@ export default function ContactPage() {
               <div>
                 <p className="font-mono text-[10px] uppercase tracking-[0.28em] text-muted-foreground">Email</p>
                 <p className="mt-1.5 text-lg font-bold tracking-tight text-foreground transition-colors group-hover:text-primary">info@chintanpatel.co.in</p>
-                <p className="mt-1 text-xs text-muted-foreground">Contact us through Mail</p>
+                <p className="mt-1 text-sm text-muted-foreground">Contact us through Mail</p>
               </div>
             </a>
           </div>
@@ -81,13 +81,13 @@ export default function ContactPage() {
                 <div>
                   <p className="font-mono text-[10px] uppercase tracking-[0.28em] text-muted-foreground">Based in</p>
                   <p className="mt-1.5 text-lg font-bold tracking-tight">Mumbai, India</p>
-                  <div className="mt-2 text-sm leading-relaxed text-muted-foreground">
+                  <div className="mt-2 text-base leading-relaxed text-muted-foreground">
                     Shree Ramnath CHS, Shop no.10<br />
                     Chhatrapati Shivaji Maharaj Road<br />
                     Opp. Karnataka Hall, Matunga Road West<br />
                     Mumbai, Maharashtra 400016
                   </div>
-                  <p className="mt-4 text-xs text-muted-foreground/60">
+                  <p className="mt-4 text-sm text-muted-foreground/60">
                     Serving clients across India.
                   </p>
                 </div>
@@ -124,7 +124,7 @@ export default function ContactPage() {
                   <a key={label} href={href} target="_blank" rel="noopener noreferrer" aria-label={label} className="group flex items-center gap-3 text-muted-foreground transition-colors hover:text-primary">
                     <span className="flex h-8 w-8 shrink-0 items-center justify-center border border-border transition-colors group-hover:border-primary"><Icon className="h-3.5 w-3.5" /></span>
                     <div className="min-w-0">
-                      <span className="block text-sm font-medium leading-tight text-foreground transition-colors group-hover:text-primary">{label}</span>
+                      <span className="block text-base font-medium leading-tight text-foreground transition-colors group-hover:text-primary">{label}</span>
                       <span className="block truncate font-mono text-[10px] text-muted-foreground">{handle}</span>
                     </div>
                   </a>

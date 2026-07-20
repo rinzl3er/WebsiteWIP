@@ -1,8 +1,8 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { ArrowRight, Volume2, Lightbulb, MonitorPlay, Zap } from "lucide-react";
-import { PageHeader, SiteLayout } from "@/components/site-layout";
-import { Particles } from "@/components/particles";
+import { PageHeader, SiteLayout } from "@/components/shared/site-layout";
+import { Particles } from "@/components/shared/particles";
 
 export const metadata: Metadata = {
   title: "Engineering Tools — Chintan Patel",

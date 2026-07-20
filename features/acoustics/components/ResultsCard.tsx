@@ -3,9 +3,9 @@
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { FrequencyGraph } from "./FrequencyGraph";
-import { useCalculatorStore } from "@/lib/calculator-store";
-import { computeGeometry, computeTotalAbsorption, calculateEyring, calculateSabine, BANDS } from "@/lib/acoustic-math";
-import { useMaterials } from "@/components/calculator/MaterialContext";
+import { useCalculatorStore } from "@/features/acoustics/lib/calculator-store";
+import { computeGeometry, computeTotalAbsorption, calculateEyring } from "@/features/acoustics/lib/acoustic-math";
+import { useMaterials } from "@/features/acoustics/components/MaterialContext";
 
 export function ResultsCard() {
   const state = useCalculatorStore();

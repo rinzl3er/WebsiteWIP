@@ -1,8 +1,8 @@
 "use client";
 
 import { Card, CardContent } from "@/components/ui/card";
-import { useCalculatorStore } from "@/lib/calculator-store";
-import { computeGeometry } from "@/lib/acoustic-math";
+import { useCalculatorStore } from "@/features/acoustics/lib/calculator-store";
+import { computeGeometry } from "@/features/acoustics/lib/acoustic-math";
 
 export function CalculatedRoomCard() {
   const state = useCalculatorStore();

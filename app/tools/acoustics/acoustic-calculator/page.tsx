@@ -1,12 +1,12 @@
-import { CalculatorHeader } from "@/components/calculator/CalculatorHeader";
-import { RoomDetailsCard } from "@/components/calculator/RoomDetailsCard";
-import { RoomSurfacesCard } from "@/components/calculator/RoomSurfacesCard";
-import { CalculatedRoomCard } from "@/components/calculator/CalculatedRoomCard";
-import { ResultsCard } from "@/components/calculator/ResultsCard";
-import { SiteLayout } from "@/components/site-layout";
-import { Particles } from "@/components/particles";
-import { getMaterialLibrary } from "@/lib/material-parser";
-import { MaterialProvider } from "@/components/calculator/MaterialContext";
+import { CalculatorHeader } from "@/features/acoustics/components/CalculatorHeader";
+import { RoomDetailsCard } from "@/features/acoustics/components/RoomDetailsCard";
+import { RoomSurfacesCard } from "@/features/acoustics/components/RoomSurfacesCard";
+import { CalculatedRoomCard } from "@/features/acoustics/components/CalculatedRoomCard";
+import { ResultsCard } from "@/features/acoustics/components/ResultsCard";
+import { SiteLayout } from "@/components/shared/site-layout";
+import { Particles } from "@/components/shared/particles";
+import { getMaterialLibrary } from "@/features/acoustics/lib/material-parser";
+import { MaterialProvider } from "@/features/acoustics/components/MaterialContext";
 
 export default function AcousticCalculatorPage() {
   const { materials, groupedMaterials } = getMaterialLibrary();

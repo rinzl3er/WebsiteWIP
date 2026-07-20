@@ -193,7 +193,6 @@
   .text-stroke-yellow {
     color: transparent;
     -webkit-text-stroke: 1px var(--primary);
-    text-stroke: 1px var(--primary);
   }
 
   .grid-lines {

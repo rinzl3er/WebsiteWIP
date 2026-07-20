@@ -6,7 +6,7 @@ import { Input } from "@/components/ui/input";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { RoomShapeIllustration } from "./RoomShapeIllustration";
 import { motion, AnimatePresence } from "framer-motion";
-import { useCalculatorStore } from "@/lib/calculator-store";
+import { useCalculatorStore } from "@/features/acoustics/lib/calculator-store";
 
 export function RoomDetailsCard() {
   const roomShape = useCalculatorStore((state) => state.roomShape);

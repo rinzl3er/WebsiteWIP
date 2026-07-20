@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
-import { SiteLayout } from "@/components/site-layout";
-import { Particles } from "@/components/particles";
+import { SiteLayout } from "@/components/shared/site-layout";
+import { Particles } from "@/components/shared/particles";
 
 export const metadata: Metadata = {
   title: "Acoustic Design Calculator — Chintan Patel",

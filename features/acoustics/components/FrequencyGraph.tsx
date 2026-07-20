@@ -1,7 +1,7 @@
 "use client";
 
 import { ResponsiveContainer, LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, ReferenceLine } from "recharts";
-import { FrequencyBands, BANDS } from "@/lib/acoustic-math";
+import { FrequencyBands, BANDS } from "@/features/acoustics/lib/acoustic-math";
 
 interface FrequencyGraphProps {
   rt60: Record<FrequencyBands, number>;
@@ -49,7 +49,7 @@ export function FrequencyGraph({ rt60, targetRT60, hasInput }: FrequencyGraphPro
               boxShadow: "0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1)"
             }}
             itemStyle={{ color: "var(--foreground)" }}
-            formatter={(value: any) => [`${Number(value).toFixed(2)} sec`, "RT60"]}
+            formatter={(value: unknown) => [`${Number(value).toFixed(2)} sec`, "RT60"]}
             labelStyle={{ color: "var(--muted-foreground)", marginBottom: "4px" }}
           />
           {hasInput && (

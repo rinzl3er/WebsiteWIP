@@ -1,8 +1,9 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import Image from "next/image";
 import { FaArrowRight } from "react-icons/fa";
-import { PageHeader, SiteLayout } from "@/components/site-layout";
-import { Particles } from "@/components/particles";
+import { PageHeader, SiteLayout } from "@/components/shared/site-layout";
+import { Particles } from "@/components/shared/particles";
 
 export const metadata: Metadata = {
   title: "About — Chintan Patel Acoustics, Lighting & AV",
@@ -49,7 +50,14 @@ export default function AboutPage() {
           <div className="mt-10 grid gap-12 lg:grid-cols-[420px_1fr] lg:items-start lg:gap-12">
             {/* Portrait */}
             <div className="group relative overflow-hidden rounded-2xl border border-primary/30 shadow-[0_24px_70px_rgba(0,0,0,0.55)]">
-              <img src="/assets/Chintanportrait.jpg" alt="Chintan Patel portrait" className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-[1.03]" />
+              <Image 
+                src="/assets/Chintanportrait.jpg" 
+                alt="Chintan Patel portrait" 
+                width={420} 
+                height={560} 
+                priority
+                className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-[1.03]" 
+              />
               <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-ink via-ink/80 to-transparent px-7 pb-7 pt-20">
                 <h2 className="text-3xl font-black leading-none tracking-tight">Chintan Patel</h2>
                 <p className="mt-2 font-mono text-[10px] uppercase tracking-[0.28em] text-primary/80">Founder &amp; Principal Consultant</p>

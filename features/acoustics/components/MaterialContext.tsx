@@ -1,7 +1,7 @@
 "use client";
 
 import React, { createContext, useContext, ReactNode } from 'react';
-import { Material, GroupedMaterials } from '@/lib/material-parser';
+import { Material, GroupedMaterials } from '@/features/acoustics/lib/material-parser';
 
 interface MaterialContextType {
   materials: Material[];

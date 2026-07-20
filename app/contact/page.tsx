@@ -2,9 +2,9 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import type { ReactNode } from "react";
 import { FaEnvelope, FaFacebookF, FaInstagram, FaMapMarkerAlt, FaPhone, FaWhatsapp, FaYoutube } from "react-icons/fa";
-import { PageHeader, SiteLayout } from "@/components/site-layout";
-import { Particles } from "@/components/particles";
-import { MetallicSweep } from "@/components/metallic-sweep";
+import { PageHeader, SiteLayout } from "@/components/shared/site-layout";
+import { Particles } from "@/components/shared/particles";
+import { MetallicSweep } from "@/components/shared/metallic-sweep";
 
 export const metadata: Metadata = {
   title: "Contact — Chintan Patel",

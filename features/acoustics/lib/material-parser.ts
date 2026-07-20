@@ -25,7 +25,7 @@ let cachedLibrary: { materials: Material[]; groupedMaterials: GroupedMaterials }
 export function getMaterialLibrary() {
   if (cachedLibrary) return cachedLibrary;
 
-  const csvPath = path.join(process.cwd(), 'app/tools/acoustics/materialdata/absorption-coefficients.csv');
+  const csvPath = path.join(process.cwd(), 'features/acoustics/data/absorption-coefficients.csv');
   const fileContent = fs.readFileSync(csvPath, 'utf-8');
 
   const { data } = Papa.parse(fileContent, {
@@ -33,10 +33,10 @@ export function getMaterialLibrary() {
     skipEmptyLines: true,
   });
 
-  const materials: Material[] = data.map((row: any) => {
+  const materials: Material[] = (data as Record<string, string>[]).map((row) => {
     // Parse coefficients, defaulting to 0 if missing or invalid
-    const parseCoeff = (val: string) => {
-      const num = parseFloat(val);
+    const parseCoeff = (val: string | undefined) => {
+      const num = parseFloat(val || '');
       return isNaN(num) ? 0 : num;
     };
 

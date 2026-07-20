@@ -6,8 +6,8 @@ import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { Select, SelectContent, SelectGroup, SelectLabel, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { Plus } from "lucide-react";
-import { useMaterials } from "@/components/calculator/MaterialContext";
-import { useCalculatorStore } from "@/lib/calculator-store";
+import { useMaterials } from "@/features/acoustics/components/MaterialContext";
+import { useCalculatorStore } from "@/features/acoustics/lib/calculator-store";
 
 export function SurfaceAccordion({ surface }: { surface: string }) {
   const { groupedMaterials } = useMaterials();

@@ -1,4 +1,4 @@
-import { SiteLayout } from "@/components/site-layout";
+import { SiteLayout } from "@/components/shared/site-layout";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {

@@ -1,6 +1,5 @@
 "use client";
 
-import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
 import { motion } from "framer-motion";
@@ -14,10 +13,10 @@ import {
   Armchair,
 } from "lucide-react";
 
-import { SiteLayout } from "@/components/site-layout";
-import { TrustedBy } from "@/components/trusted-by";
-import { SelectedProjects } from "@/components/selected-projects";
-import { Particles } from "@/components/particles";
+import { SiteLayout } from "@/components/shared/site-layout";
+import { TrustedBy } from "@/components/shared/trusted-by";
+import { SelectedProjects } from "@/components/shared/selected-projects";
+import { Particles } from "@/components/shared/particles";
 import {
   revealProps,
   staggerContainer,
@@ -85,7 +84,7 @@ function ServiceCard({
       {...staggerItem}
       layout
       onClick={href ? () => router.push(href) : !expanded ? onToggle : undefined}
-      className={`relative overflow-hidden border bg-ink-soft transition-all duration-500 cursor-pointer ${expanded
+      className={`group relative overflow-hidden border bg-ink-soft transition-all duration-500 cursor-pointer ${expanded
         ? "rounded-3xl border-primary p-8 lg:flex-[3]"
         : anyExpanded
           ? "hidden lg:hidden"
@@ -125,8 +124,16 @@ function ServiceCard({
             strokeWidth={1.5}
           />
 
-          <h3 className="mt-6 text-3xl font-bold">
+          <h3 className="mt-6 flex items-center gap-2 text-3xl font-bold">
             {title}
+            {href && (
+              <span
+                className="flex h-6 w-6 items-center justify-center rounded-full border border-primary/60 text-primary transition-transform duration-300 group-hover:translate-x-1"
+                aria-hidden="true"
+              >
+                <ArrowRight className="h-3.5 w-3.5" strokeWidth={2} />
+              </span>
+            )}
           </h3>
 
           <p className="mt-2 font-mono text-[11px] uppercase tracking-[0.25em] text-primary">

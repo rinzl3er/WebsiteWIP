@@ -1,9 +1,9 @@
-import { PageHeader, SiteLayout } from "@/components/site-layout";
+import { PageHeader, SiteLayout } from "@/components/shared/site-layout";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
   title: "Projects | Chintan Patel",
-  description: "A comprehensive list of our installations and projects across the globe.",
+  description: "A comprehensive list of our installations and projects.",
 };
 
 const locations = [

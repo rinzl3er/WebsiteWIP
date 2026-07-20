@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
-import { PageHeader, SiteLayout } from "@/components/site-layout";
-import { Particles } from "@/components/particles";
+import Image from "next/image";
+import { PageHeader, SiteLayout } from "@/components/shared/site-layout";
+import { Particles } from "@/components/shared/particles";
 
 export const metadata: Metadata = {
   title: "Projects — Chintan Patel",
@@ -80,8 +81,14 @@ export default function ProjectsPage() {
           </div>
           <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
             {images.map(([filename, venue, location]) => (
-              <div key={filename} className="group relative overflow-hidden rounded-xl shadow-lg">
-                <img src={`/site-images/${filename}`} alt={`${venue} - ${location}`} className="h-72 w-full object-cover transition duration-500 group-hover:scale-105" />
+              <div key={filename} className="group relative overflow-hidden rounded-xl shadow-lg h-72 w-full">
+                <Image 
+                  src={`/site-images/${filename}`} 
+                  alt={`${venue} - ${location}`} 
+                  fill
+                  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                  className="object-cover transition duration-500 group-hover:scale-105" 
+                />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent transition-all duration-300 ease-out lg:from-transparent lg:via-transparent lg:to-transparent lg:bg-transparent lg:group-hover:from-black/85 lg:group-hover:via-black/30 lg:group-hover:to-transparent" />
                 <div className="absolute bottom-0 left-0 p-5">
                   <h3 className="text-lg font-semibold text-white transition-all duration-300 ease-out lg:opacity-0 lg:translate-y-2 lg:group-hover:opacity-100 lg:group-hover:translate-y-0">

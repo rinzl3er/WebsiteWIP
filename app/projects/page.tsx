@@ -14,17 +14,17 @@ const locations = [
   {
     name: "Mumbai",
     projects: [
-      "Lucy Lou", "Megumi", "Goose and the Gridiron", "House of Lords", "Glitte", 
-      "Oh Pitara", "Spice Laundry", "Tafe", "145", "Drunkyard", "Playboy Club Mumbai", 
-      "Sin City", "B-Kitchen & Bar", "Hammer & Song", "Invincible", "Tap, Worli", 
+      "Lucy Lou", "Megumi", "Goose and the Gridiron", "House of Lords", "Glitte",
+      "Oh Pitara", "Spice Laundry", "Tafe", "145", "Drunkyard", "Playboy Club Mumbai",
+      "Sin City", "B-Kitchen & Bar", "Hammer & Song", "Invincible", "Tap, Worli",
       "The Yellow Lights School of Performing Arts", "...Many More"
     ]
   },
   {
     name: "Hyderabad",
     projects: [
-      "Marquee", "King'dome", "Toggo", "Karimnagar Cable Bridge", "Crossbreed", 
-      "Nicos", "Heart Cup Coffee, Gachibowli", "Airlive, Gachibowli", "Skyhy", 
+      "Marquee", "King'dome", "Toggo", "Karimnagar Cable Bridge", "Crossbreed",
+      "Nicos", "Heart Cup Coffee, Gachibowli", "Airlive, Gachibowli", "Skyhy",
       "Berlin", "Birdbox", "T-Hub", "Raasta", "Animal Park"
     ]
   },
@@ -124,18 +124,18 @@ export default function ProjectsPage() {
       <PageHeader
         eyebrow="Portfolio"
         title="Our Projects."
-        intro="A comprehensive list of our installations and projects across the globe."
+        intro="A comprehensive list of our installations and projects."
         glowPosition="center"
       />
 
       <section className="py-20 lg:py-28 relative">
         <div className="absolute inset-0 bg-ink-dark/50 -z-10" />
-        
+
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="columns-1 md:columns-2 lg:columns-3 gap-8 space-y-8">
             {locations.map((location) => (
-              <div 
-                key={location.name} 
+              <div
+                key={location.name}
                 className="break-inside-avoid border border-border/50 bg-ink-soft/40 p-8 hover:bg-ink-soft/80 hover:border-primary/50 transition-colors duration-300"
               >
                 <h3 className="font-mono text-xl uppercase tracking-[0.2em] text-primary mb-6">

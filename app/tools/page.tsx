@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { ArrowRight, Volume2, Lightbulb, MonitorPlay, Zap } from "lucide-react";
+import { ArrowRight, Volume2, Lightbulb } from "lucide-react";
 import { PageHeader, SiteLayout } from "@/components/shared/site-layout";
 import { Particles } from "@/components/shared/particles";
 
@@ -12,7 +12,7 @@ export const metadata: Metadata = {
 const toolsList = [
   {
     title: "Acoustic Design Calculator",
-    description: "Analyze room acoustics using industry-standard engineering calculations including reverberation time, room geometry, absorption, and treatment recommendations.",
+    description: "Calculate reverberation time and find suitable acoustic treatments for your space.",
     badge: "Available",
     icon: Volume2,
     href: "/tools/acoustics/acoustic-calculator",
@@ -20,27 +20,11 @@ const toolsList = [
   },
   {
     title: "Lighting Design Calculator",
-    description: "Calculate DMX channels, pixel counts, DVI fixtures, and lighting license requirements for professional entertainment and architectural lighting systems.",
+    description: "Plan lighting systems, estimate fixture requirements, and simplify project calculations.",
     badge: "Available",
     icon: Lightbulb,
     href: "/tools/lighting",
     disabled: false,
-  },
-  {
-    title: "AV Engineering Tools",
-    description: "Utilities for audiovisual system planning, bandwidth calculations, cable requirements, and equipment estimation.",
-    badge: "Coming Soon",
-    icon: MonitorPlay,
-    href: "#",
-    disabled: true,
-  },
-  {
-    title: "Electrical Load Calculator",
-    description: "Estimate electrical loads, power consumption, and circuit requirements for integrated lighting and AV installations.",
-    badge: "Coming Soon",
-    icon: Zap,
-    href: "#",
-    disabled: true,
   },
 ];
 
@@ -54,7 +38,7 @@ export default function ToolsPage() {
         showBorder={false}
         eyebrow="Resources"
         title="Engineering Tools"
-        intro="Get general estimations for room acoustics, lighting configurations, and AV system requirements. Built to assist with quick preliminary budgeting and scoping."
+        intro="Get general estimations for room acoustics and lighting configurations. Built to assist with quick preliminary budgeting and scoping."
         glowPosition="center"
       />
 

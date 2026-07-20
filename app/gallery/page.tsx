@@ -4,11 +4,11 @@ import { PageHeader, SiteLayout } from "@/components/shared/site-layout";
 import { Particles } from "@/components/shared/particles";
 
 export const metadata: Metadata = {
-  title: "Projects — Chintan Patel",
+  title: "Gallery — Chintan Patel",
   description:
     "Watch installations, tuning sessions and completed acoustics, lighting and AV projects.",
   openGraph: {
-    title: "Projects — Chintan Patel",
+    title: "Gallery — Chintan Patel",
     description:
       "Video gallery showcasing acoustics, lighting, home theatre and AV installations.",
   },
@@ -49,11 +49,11 @@ const images = [
   ["Yellow Lights School for Performing Arts, Thane A.jpg", "Yellow Lights School for Performing Arts", "Thane"],
 ] as const;
 
-export default function ProjectsPage() {
+export default function GalleryPage() {
   return (
     <SiteLayout>
       <Particles className="-z-10" />
-      <PageHeader className="bg-transparent" showGridLines={false} showBorder={false} eyebrow="Projects" title="Projects" intro="Browse completed projects through our image and video galleries." />
+      <PageHeader className="bg-transparent" showGridLines={false} showBorder={false} eyebrow="Gallery" title="Gallery" intro="Browse completed projects through our image and video galleries." />
 
       <section id="videos" className="relative z-10 py-20">
         <div className="mx-auto max-w-[1700px] px-6">
@@ -82,12 +82,12 @@ export default function ProjectsPage() {
           <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
             {images.map(([filename, venue, location]) => (
               <div key={filename} className="group relative overflow-hidden rounded-xl shadow-lg h-72 w-full">
-                <Image 
-                  src={`/site-images/${filename}`} 
-                  alt={`${venue} - ${location}`} 
+                <Image
+                  src={`/site-images/${filename}`}
+                  alt={`${venue} - ${location}`}
                   fill
                   sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-                  className="object-cover transition duration-500 group-hover:scale-105" 
+                  className="object-cover transition duration-500 group-hover:scale-105"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent transition-all duration-300 ease-out lg:from-transparent lg:via-transparent lg:to-transparent lg:bg-transparent lg:group-hover:from-black/85 lg:group-hover:via-black/30 lg:group-hover:to-transparent" />
                 <div className="absolute bottom-0 left-0 p-5">

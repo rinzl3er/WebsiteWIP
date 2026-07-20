@@ -1,15 +1,16 @@
 "use client";
 
-import { useState } from "react";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Label } from "@/components/ui/label";
 import { Input } from "@/components/ui/input";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { RoomShapeIllustration } from "./RoomShapeIllustration";
 import { motion, AnimatePresence } from "framer-motion";
+import { useCalculatorStore } from "@/lib/calculator-store";
 
 export function RoomDetailsCard() {
-  const [roomShape, setRoomShape] = useState("Standard Room");
+  const roomShape = useCalculatorStore((state) => state.roomShape);
+  const setRoomShape = useCalculatorStore((state) => state.setRoomShape);
 
   return (
     <Card className="bg-ink border-border/50 shadow-2xl overflow-hidden rounded-2xl relative">
@@ -94,12 +95,17 @@ export function RoomDetailsCard() {
 }
 
 function GeometryInput({ label, id }: { label: string; id: string }) {
+  const value = useCalculatorStore((state) => state.geometry[id]);
+  const setGeometry = useCalculatorStore((state) => state.setGeometry);
+
   return (
     <div className="space-y-3">
       <Label htmlFor={id} className="text-xs text-muted-foreground">{label}</Label>
       <Input
         id={id}
         type="number"
+        value={value || ''}
+        onChange={(e) => setGeometry(id, parseFloat(e.target.value) || 0)}
         placeholder="0.0"
         className="bg-transparent border-0 border-b border-border/50 h-10 px-0 rounded-none font-mono focus-visible:ring-0 focus-visible:border-primary/50 text-lg transition-colors"
       />

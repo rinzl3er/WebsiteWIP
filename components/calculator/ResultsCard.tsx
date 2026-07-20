@@ -2,10 +2,29 @@
 
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { FrequencyGraphPlaceholder } from "./FrequencyGraphPlaceholder";
-import { RecommendationsPlaceholder } from "./RecommendationsPlaceholder";
+import { FrequencyGraph } from "./FrequencyGraph";
+import { useCalculatorStore } from "@/lib/calculator-store";
+import { computeGeometry, computeTotalAbsorption, calculateEyring, calculateSabine, BANDS } from "@/lib/acoustic-math";
+import { useMaterials } from "@/components/calculator/MaterialContext";
 
 export function ResultsCard() {
+  const state = useCalculatorStore();
+  const { materials } = useMaterials();
+  
+  const geom = computeGeometry(state);
+  const absorption = computeTotalAbsorption(state, geom, materials);
+  
+  // Default to Eyring, per requirements
+  const rt60 = calculateEyring(geom.volume, geom.totalSurfaceArea, absorption);
+  
+  // Mid-frequency is average of 500 and 1000
+  const midFreqRT60 = (rt60[500] + rt60[1000]) / 2;
+  const displayRT60 = midFreqRT60 > 0 ? midFreqRT60.toFixed(2) : "0.00";
+
+  // Target RT60 (Hardcoded per requirement)
+  const targetRT60 = 0.6;
+  const hasInput = geom.volume > 0 && geom.totalSurfaceArea > 0;
+
   return (
     <section className="space-y-6">
       <h2 className="text-xl font-light tracking-wide text-primary border-b border-border/30 pb-4">Acoustic Results</h2>
@@ -18,30 +37,31 @@ export function ResultsCard() {
             <div className="space-y-3">
               <p className="text-xs font-mono text-muted-foreground uppercase tracking-widest">Estimated RT60</p>
               <div className="flex items-baseline gap-3">
-                <span className="text-7xl md:text-8xl font-black tracking-tighter text-white">0.00</span>
+                <span className="text-7xl md:text-8xl font-black tracking-tighter text-white">{displayRT60}</span>
                 <span className="text-2xl text-muted-foreground font-light">sec</span>
               </div>
             </div>
             
             <div className="space-y-6 text-left sm:text-right">
-              <Badge variant="outline" className="border-primary/30 text-primary bg-primary/5 rounded-full px-4 py-1.5 font-mono text-xs uppercase tracking-widest">
-                Pending Input
-              </Badge>
+              {hasInput ? (
+                <Badge variant="outline" className="border-green-500/30 text-green-400 bg-green-500/5 rounded-full px-4 py-1.5 font-mono text-xs uppercase tracking-widest">
+                  Live Calculation (Eyring)
+                </Badge>
+              ) : (
+                <Badge variant="outline" className="border-primary/30 text-primary bg-primary/5 rounded-full px-4 py-1.5 font-mono text-xs uppercase tracking-widest">
+                  Pending Input
+                </Badge>
+              )}
               <div className="space-y-2">
                 <p className="text-xs text-muted-foreground uppercase tracking-widest">Target RT60</p>
-                <p className="text-xl font-mono text-white/80">0.00 sec</p>
+                <p className="text-xl font-mono text-white/80">{targetRT60.toFixed(2)} sec</p>
               </div>
             </div>
           </div>
 
           <div className="space-y-6">
             <h3 className="text-xs font-mono text-muted-foreground uppercase tracking-widest border-b border-border/30 pb-3">Frequency Response</h3>
-            <FrequencyGraphPlaceholder />
-          </div>
-
-          <div className="space-y-6">
-            <h3 className="text-xs font-mono text-muted-foreground uppercase tracking-widest border-b border-border/30 pb-3">Recommendations</h3>
-            <RecommendationsPlaceholder />
+            <FrequencyGraph rt60={rt60} targetRT60={targetRT60} hasInput={hasInput} />
           </div>
           
         </CardContent>

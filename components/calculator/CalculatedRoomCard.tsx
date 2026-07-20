@@ -1,13 +1,18 @@
 "use client";
 
 import { Card, CardContent } from "@/components/ui/card";
+import { useCalculatorStore } from "@/lib/calculator-store";
+import { computeGeometry } from "@/lib/acoustic-math";
 
 export function CalculatedRoomCard() {
+  const state = useCalculatorStore();
+  const geom = computeGeometry(state);
+
   const stats = [
-    { label: "Volume", value: "—", unit: "m³" },
-    { label: "Floor Area", value: "—", unit: "m²" },
-    { label: "Wall Area", value: "—", unit: "m²" },
-    { label: "Ceiling Area", value: "—", unit: "m²" },
+    { label: "Volume", value: geom.volume.toFixed(1), unit: "m³" },
+    { label: "Floor Area", value: geom.floorArea.toFixed(1), unit: "m²" },
+    { label: "Wall Area", value: geom.wallArea.toFixed(1), unit: "m²" },
+    { label: "Ceiling Area", value: geom.ceilingArea.toFixed(1), unit: "m²" },
   ];
 
   return (

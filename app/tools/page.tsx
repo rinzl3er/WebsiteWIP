@@ -15,7 +15,7 @@ const toolsList = [
     description: "Analyze room acoustics using industry-standard engineering calculations including reverberation time, room geometry, absorption, and treatment recommendations.",
     badge: "Available",
     icon: Volume2,
-    href: "/tools/acoustic-calculator",
+    href: "/tools/acoustics/acoustic-calculator",
     disabled: false,
   },
   {

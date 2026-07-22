@@ -254,6 +254,22 @@
     color: var(--primary);
     border-color: var(--primary);
   }
+
+  .tool-input {
+    @apply h-11 w-full rounded-lg border border-border bg-ink px-3 text-sm text-foreground outline-none transition placeholder:text-muted-foreground focus:border-primary focus:ring-1 focus:ring-primary;
+  }
+
+  .tool-primary {
+    @apply inline-flex h-11 items-center justify-center gap-2 rounded-lg bg-primary px-4 font-mono text-xs font-bold uppercase tracking-wider text-primary-foreground transition hover:brightness-110;
+  }
+
+  .tool-secondary {
+    @apply inline-flex h-10 items-center justify-center gap-2 rounded-lg border border-border px-3 font-mono text-xs uppercase tracking-wider text-muted-foreground transition hover:border-primary hover:text-primary;
+  }
+
+  .tool-icon {
+    @apply inline-flex h-8 w-8 items-center justify-center rounded-md border border-border text-muted-foreground transition hover:border-primary hover:text-primary;
+  }
 }
 
 ::-webkit-scrollbar {
@@ -274,15 +290,20 @@
 }
 
 @keyframes marquee {
-  0% { transform: translateX(0); }
-  100% { transform: translateX(-50%); }
+  0% {
+    transform: translateX(0);
+  }
+
+  100% {
+    transform: translateX(-50%);
+  }
 }
 
 @layer utilities {
   .animate-marquee {
     animation: marquee 50s linear infinite;
   }
-  
+
   .animate-marquee-reverse {
     animation: marquee 50s linear infinite reverse;
   }

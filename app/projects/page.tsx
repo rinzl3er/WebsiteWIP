@@ -34,7 +34,7 @@ const locations = [
   },
   {
     name: "Pune",
-    projects: ["Opus", "Sky Stories", "Penthouze NIBM", "Backstage"]
+    projects: ["Opus", "Sky Stories", "Penthouze NIBM", "Backstage", "Xclusive"]
   },
   {
     name: "Goa",

@@ -1,22 +1,19 @@
 import type { Metadata } from "next";
+
 import { SiteLayout } from "@/components/shared/site-layout";
 import { Particles } from "@/components/shared/particles";
+import { MadrixCalculator } from "@/features/madrix/components/madrix-calculator";
 
 export const metadata: Metadata = {
-  title: "Lighting Design Calculator — Chintan Patel",
-  description: "Preliminary lighting design tools and calculators.",
+  title: "MADRIX 5 License Estimator | Chintan Patel",
+  description: "Estimate DMX and DVI output requirements for MADRIX 5 licenses.",
 };
 
-export default function LightingToolPlaceholder() {
+export default function LightingToolPage() {
   return (
     <SiteLayout>
       <Particles className="-z-10" />
-      <div className="flex flex-col items-center justify-center min-h-[70vh] text-center px-4">
-        <h1 className="text-4xl md:text-5xl font-black text-white tracking-tight mb-4">Lighting Design Calculator</h1>
-        <p className="mt-2 text-lg text-muted-foreground font-mono uppercase tracking-[0.2em] px-4 py-2 border border-border rounded-full inline-block">
-          Coming Soon
-        </p>
-      </div>
+      <MadrixCalculator />
     </SiteLayout>
   );
 }

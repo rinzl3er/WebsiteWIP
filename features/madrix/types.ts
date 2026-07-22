@@ -19,3 +19,19 @@ export type MadrixLicense = {
   dmxCapacity: number;
   dviCapacity: number;
 };
+
+export type DviInputMethod = "resolution" | "area" | "fixture_size" | "pixel_count";
+
+export interface DviProjectItem {
+  id: string;
+  name: string;
+  inputMethod: DviInputMethod;
+  pixels: number;
+  parameters: string;
+  rawInputs: {
+    resolution?: { x: string; y: string; z: string; count: string };
+    area?: { val: string; unit: string; pitch: string };
+    fixtureSize?: { w: string; h: string; unit: string; pitch: string; count: string };
+    pixelCount?: { count: string; fixtureCount: string };
+  };
+}

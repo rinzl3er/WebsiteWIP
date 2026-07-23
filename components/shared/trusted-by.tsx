@@ -1,6 +1,7 @@
 "use client";
 
 import Image from "next/image";
+import Link from "next/link";
 
 const row1Logos = [
   "B.jpg",
@@ -37,19 +38,22 @@ export function TrustedBy() {
         </h2>
       </div>
 
-      <div className="relative flex flex-col gap-10 w-full max-w-[100vw] overflow-hidden">
+      <Link
+        href="/gallery#images"
+        className="relative flex flex-col gap-10 w-full max-w-[100vw] overflow-hidden cursor-pointer group"
+      >
         {/* Top/Bottom gradient masks for smooth fade in/out on edges */}
         <div className="pointer-events-none absolute inset-y-0 left-0 w-[15%] sm:w-1/4 z-10 bg-gradient-to-r from-background to-transparent" />
         <div className="pointer-events-none absolute inset-y-0 right-0 w-[15%] sm:w-1/4 z-10 bg-gradient-to-l from-background to-transparent" />
 
         {/* Row 1 */}
-        <div className="flex w-fit animate-marquee hover:[animation-play-state:paused]">
+        <div className="flex w-fit animate-marquee group-hover:[animation-play-state:paused]">
           {[...row1Logos, ...row1Logos].map((logo, idx) => (
             <div
               key={`row1-${idx}`}
               className="flex items-center justify-center w-[160px] sm:w-[220px] mx-6 sm:mx-10 shrink-0"
             >
-              <div className="relative w-full h-24 hover:scale-105 transition-transform duration-500">
+              <div className="relative w-full h-24 group-hover:scale-105 transition-transform duration-500">
                 <Image
                   src={`/company-logos/${logo}`}
                   alt={`Client Logo ${idx}`}
@@ -63,13 +67,13 @@ export function TrustedBy() {
         </div>
 
         {/* Row 2 (Reverse) */}
-        <div className="flex w-fit animate-marquee-reverse hover:[animation-play-state:paused]">
+        <div className="flex w-fit animate-marquee-reverse group-hover:[animation-play-state:paused]">
           {[...row2Logos, ...row2Logos].map((logo, idx) => (
             <div
               key={`row2-${idx}`}
               className="flex items-center justify-center w-[160px] sm:w-[220px] mx-6 sm:mx-10 shrink-0"
             >
-              <div className="relative w-full h-24 hover:scale-105 transition-transform duration-500">
+              <div className="relative w-full h-24 group-hover:scale-105 transition-transform duration-500">
                 <Image
                   src={`/company-logos/${logo}`}
                   alt={`Client Logo ${idx}`}
@@ -81,7 +85,8 @@ export function TrustedBy() {
             </div>
           ))}
         </div>
-      </div>
+      </Link>
     </section>
   );
 }
+

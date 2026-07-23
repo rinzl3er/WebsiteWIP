@@ -14,13 +14,13 @@ export const metadata: Metadata = {
   },
 };
 
-const capabilities = ["Room acoustic modelling & treatment", "Sound isolation & noise control", "Home theatre design & calibration", "Auditorium & worship space acoustics", "Architectural & decorative lighting", "MADRIX pixel-mapped LED control", "AV integration & boardroom automation", "Line-array & distributed audio systems"];
+const capabilities = ["Room acoustic modelling & treatment", "Sound isolation & noise control", "Home theatre design & calibration", "Auditorium & worship space acoustics", "Architectural & decorative lighting", "MADRIX augmented, pixel-mapped LED control", "AV integration & boardroom automation", "Line-array & distributed audio systems"];
 
 export default function AboutPage() {
   return (
     <SiteLayout>
       <Particles className="-z-10" />
-      <PageHeader className="bg-transparent" showGridLines={false} showBorder={false} eyebrow="About us" title="Where sound, light and space come together." intro="We work across acoustics, architectural lighting and audio visual design to shape spaces as complete experiences. From private residences to hospitality and performance venues, each project begins with the space itself." />
+      <PageHeader className="bg-transparent" showGridLines={false} showBorder={false} glowPosition="center" animateGlow={true} eyebrow="About us" title="Where sound, light and space come together." intro="We work across acoustics, architectural lighting and audio visual design to shape spaces as complete experiences. From private residences to hospitality and performance venues, each project begins with the space itself." />
 
       <section className="relative z-10 py-20 lg:py-28">
         <div className="mx-auto grid max-w-7xl gap-16 px-4 sm:px-6 lg:grid-cols-2 lg:px-8">
@@ -50,13 +50,13 @@ export default function AboutPage() {
           <div className="mt-10 grid gap-12 lg:grid-cols-[420px_1fr] lg:items-start lg:gap-12">
             {/* Portrait */}
             <div className="group relative overflow-hidden rounded-2xl border border-primary/30 shadow-[0_24px_70px_rgba(0,0,0,0.55)]">
-              <Image 
-                src="/assets/Chintanportrait.jpg" 
-                alt="Chintan Patel portrait" 
-                width={420} 
-                height={560} 
+              <Image
+                src="/assets/Chintanportrait.jpg"
+                alt="Chintan Patel portrait"
+                width={420}
+                height={560}
                 priority
-                className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-[1.03]" 
+                className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-[1.03]"
               />
               <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-ink via-ink/80 to-transparent px-7 pb-7 pt-20">
                 <h2 className="text-3xl font-black leading-none tracking-tight">Chintan Patel</h2>

@@ -40,6 +40,7 @@ export default function ToolsPage() {
         title="Engineering Tools"
         intro="Get general estimations for room acoustics and lighting configurations. Built to assist with quick preliminary budgeting and scoping."
         glowPosition="center"
+        animateGlow={true}
       />
 
       <section className="relative z-10 pb-32">

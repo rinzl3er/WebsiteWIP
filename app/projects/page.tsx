@@ -1,4 +1,5 @@
 import { PageHeader, SiteLayout } from "@/components/shared/site-layout";
+import { Particles } from "@/components/shared/particles";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
@@ -121,14 +122,19 @@ const locations = [
 export default function ProjectsPage() {
   return (
     <SiteLayout>
+      <Particles className="-z-10" />
       <PageHeader
+        className="bg-transparent"
+        showGridLines={false}
+        showBorder={false}
         eyebrow="Portfolio"
         title="Our Projects."
         intro="A comprehensive list of our installations and projects."
         glowPosition="center"
+        animateGlow={true}
       />
 
-      <section className="py-20 lg:py-28 relative">
+      <section className="relative z-10 py-20 lg:py-28">
         <div className="absolute inset-0 bg-ink-dark/50 -z-10" />
 
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">

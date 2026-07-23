@@ -265,8 +265,8 @@ export function MadrixCalculator() {
                       key={tab.id}
                       onClick={() => setDmxTab(tab.id)}
                       className={`flex-1 min-w-[90px] py-2 px-3 rounded-lg text-[10px] font-mono uppercase tracking-wider transition ${dmxTab === tab.id
-                          ? "bg-primary text-primary-foreground font-bold"
-                          : "text-muted-foreground hover:text-white hover:bg-ink-soft"
+                        ? "bg-primary text-primary-foreground font-bold"
+                        : "text-muted-foreground hover:text-white hover:bg-ink-soft"
                         }`}
                     >
                       {tab.label}
@@ -415,8 +415,8 @@ export function MadrixCalculator() {
                       key={method.id}
                       onClick={() => setDviInputMethod(method.id)}
                       className={`flex-1 min-w-[90px] py-2 px-3 rounded-lg text-[10px] font-mono uppercase tracking-wider transition ${dviInputMethod === method.id
-                          ? "bg-primary text-primary-foreground font-bold"
-                          : "text-muted-foreground hover:text-white hover:bg-ink-soft"
+                        ? "bg-primary text-primary-foreground font-bold"
+                        : "text-muted-foreground hover:text-white hover:bg-ink-soft"
                         }`}
                     >
                       {method.label}

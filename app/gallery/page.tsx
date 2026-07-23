@@ -53,7 +53,7 @@ export default function GalleryPage() {
   return (
     <SiteLayout>
       <Particles className="-z-10" />
-      <PageHeader className="bg-transparent" showGridLines={false} showBorder={false} eyebrow="Gallery" title="Gallery" intro="Browse completed projects through our image and video galleries." />
+      <PageHeader className="bg-transparent" showGridLines={false} showBorder={false} glowPosition="center" animateGlow={true} eyebrow="Gallery" title="Gallery" intro="Browse completed projects through our image and video galleries." />
 
       <section id="videos" className="relative z-10 py-20">
         <div className="mx-auto max-w-[1700px] px-6">

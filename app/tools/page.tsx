@@ -17,6 +17,7 @@ const toolsList = [
     icon: Volume2,
     href: "/tools/acoustics/acoustic-calculator",
     disabled: false,
+    disclaimer: "Preliminary estimates only. Actual performance may vary based on site conditions and material properties.",
   },
   {
     title: "Lighting Design Calculator",
@@ -81,9 +82,11 @@ export default function ToolsPage() {
                         >
                           Open Tool <ArrowRight className="h-4 w-4" />
                         </Link>
-                        <p className="text-[10px] text-muted-foreground/40 font-mono tracking-wider mt-3">
-                          * Subject to minor margin discrepancies.
-                        </p>
+                        {tool.disclaimer && (
+                          <p className="text-[10px] text-muted-foreground/40 font-mono tracking-wider mt-3">
+                            {tool.disclaimer}
+                          </p>
+                        )}
                       </div>
                     )}
                   </div>

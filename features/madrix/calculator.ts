@@ -23,9 +23,9 @@ export const calculateLedStrip = (length: number, type: StripType): CalculationR
   const spec = STRIP_SPECS[type];
   const pixels = length * spec.pixelsPerMeter;
   const channels = pixels * spec.channelsPerPixel;
-  const universes = channels / 512;
-  const nebulas = universes / 12;
-  const drives = (length * 14) / 300;
+  const universes = Math.ceil(channels / 512);
+  const nebulas = Math.ceil(universes / 12);
+  const drives = Math.ceil((length * 14) / 300);
 
   return {
     pixels,
@@ -38,9 +38,9 @@ export const calculateLedStrip = (length: number, type: StripType): CalculationR
 
 export const calculatePixelFixture = (pixels: number, channelsPerPixel: number): CalculationResults => {
   const channels = pixels * channelsPerPixel;
-  const universes = channels / 512;
-  const nebulas = universes / 12;
-  const drives = pixels / 100;
+  const universes = Math.ceil(channels / 512);
+  const nebulas = Math.ceil(universes / 12);
+  const drives = Math.ceil(pixels / 100);
 
   return {
     pixels,

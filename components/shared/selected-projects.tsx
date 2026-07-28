@@ -53,10 +53,10 @@ export function SelectedProjects() {
 
         <motion.div {...revealProps} className="mb-10 flex flex-col md:flex-row md:items-end justify-between gap-6">
           <div>
-            <span className="font-mono text-[11px] uppercase tracking-[0.3em] text-primary">
+            <span className="font-mono text-sm uppercase tracking-[0.3em] text-primary sm:text-base">
               SELECTED PROJECTS
             </span>
-            <h2 className="mt-4 text-4xl font-black sm:text-5xl">
+            <h2 className="mt-4 text-5xl font-black sm:text-6xl">
               A Selection of <span className="text-primary">Our Work</span>
             </h2>
           </div>

@@ -4,19 +4,23 @@ import Image from "next/image";
 import Link from "next/link";
 
 const row1Logos = [
+  "Penthouse NIBM.jpg",
+  "piramal.jpg",
+  "Havells.jpg",
+  "grand hyatt.png",
+  "adani.png",
+  "Playboy club mumbai.jpg",
+];
+
+const row2Logos = [
   "B.jpg",
   "Farzi cafe.png",
   "Hashtag pub bar kitchen.jpg",
   "INVINCIBLE.jpg",
   "Opal Bar & Cafe.png",
-  "Penthouse NIBM.jpg",
   "Perfect place in town.png",
-  "Playboy club mumbai.jpg",
   "Privee The ecstasy.jpg",
   "Raasta.jpg",
-];
-
-const row2Logos = [
   "SOHO delhi.jpg",
   "Sin city.png",
   "Tea (hindi typograhy).jpg",
@@ -27,7 +31,32 @@ const row2Logos = [
   "heart cup coffee.png",
   "lord of the drinks.jpg",
   "ohh pitara.jpg",
+  "House of Lords.png",
+  "trafic.png",
+  "sky stories.jpg",
+  "sarabi.jpeg",
+  "backstage pune.jpg",
+  "Xclusive.jpg",
+  "The Yeastern Civilization.png",
+  "SOHO goa.jpg",
+  "Artistry Goa.jpg",
+  "kiki by the sea goa.jpg",
+  "Playboy beer garden ludhiana.png",
+  "le Nabini dakar.jpg",
 ];
+
+const toLogoItems = (logos: string[]) =>
+  logos
+    .map((logo) => logo.trim())
+    .filter(Boolean)
+    .map((logo) => ({
+      name: logo,
+      src: `/company-logos/${logo}`,
+      alt: logo.replace(/\.[^/.]+$/, "").replace(/[-_]/g, " "),
+    }));
+
+const row1LogoItems = toLogoItems(row1Logos);
+const row2LogoItems = toLogoItems(row2Logos);
 
 export function TrustedBy() {
   return (
@@ -48,15 +77,15 @@ export function TrustedBy() {
 
         {/* Row 1 */}
         <div className="flex w-fit animate-marquee group-hover:[animation-play-state:paused]">
-          {[...row1Logos, ...row1Logos].map((logo, idx) => (
+          {[...row1LogoItems, ...row1LogoItems].map((logo, idx) => (
             <div
-              key={`row1-${idx}`}
+              key={`row1-${logo.name}-${idx}`}
               className="flex items-center justify-center w-[160px] sm:w-[220px] mx-6 sm:mx-10 shrink-0"
             >
               <div className="relative w-full h-24 group-hover:scale-105 transition-transform duration-500">
                 <Image
-                  src={`/company-logos/${logo}`}
-                  alt={`Client Logo ${idx}`}
+                  src={logo.src}
+                  alt={logo.alt}
                   fill
                   className="object-contain"
                   sizes="(max-width: 768px) 160px, 220px"
@@ -68,15 +97,15 @@ export function TrustedBy() {
 
         {/* Row 2 (Reverse) */}
         <div className="flex w-fit animate-marquee-reverse group-hover:[animation-play-state:paused]">
-          {[...row2Logos, ...row2Logos].map((logo, idx) => (
+          {[...row2LogoItems, ...row2LogoItems].map((logo, idx) => (
             <div
-              key={`row2-${idx}`}
+              key={`row2-${logo.name}-${idx}`}
               className="flex items-center justify-center w-[160px] sm:w-[220px] mx-6 sm:mx-10 shrink-0"
             >
               <div className="relative w-full h-24 group-hover:scale-105 transition-transform duration-500">
                 <Image
-                  src={`/company-logos/${logo}`}
-                  alt={`Client Logo ${idx}`}
+                  src={logo.src}
+                  alt={logo.alt}
                   fill
                   className="object-contain"
                   sizes="(max-width: 768px) 160px, 220px"
@@ -89,4 +118,3 @@ export function TrustedBy() {
     </section>
   );
 }
-

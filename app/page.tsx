@@ -229,7 +229,7 @@ export default function Home() {
             >
               <span className="h-px w-12 bg-primary" />
 
-              <span className="font-mono text-[11px] uppercase tracking-[0.35em] text-primary">
+              <span className="font-mono text-sm uppercase tracking-[0.35em] text-primary sm:text-base">
                 DESIGN • CONSULTANCY • EXECUTION
               </span>
             </motion.div>
@@ -298,11 +298,11 @@ export default function Home() {
             className="max-w-3xl"
           >
 
-            <span className="font-mono text-[11px] uppercase tracking-[0.3em] text-primary">
+            <span className="font-mono text-sm uppercase tracking-[0.3em] text-primary sm:text-base">
               WHAT WE DO
             </span>
 
-            <h2 className="mt-4 text-4xl font-black sm:text-6xl">
+            <h2 className="mt-4 text-5xl font-black sm:text-7xl">
               Three disciplines.
               <br />
               One studio.
@@ -359,11 +359,11 @@ export default function Home() {
           {...revealProps}
           className="relative z-30 mx-auto max-w-4xl px-4 text-center sm:px-6 lg:px-8"
         >
-          <span className="font-mono text-[11px] uppercase tracking-[0.35em] text-primary">
+          <span className="font-mono text-sm uppercase tracking-[0.35em] text-primary sm:text-base">
             LET&apos;S BUILD SOMETHING
           </span>
 
-          <h2 className="mt-6 text-4xl font-black leading-tight sm:text-6xl">
+          <h2 className="mt-6 text-5xl font-black leading-tight sm:text-7xl">
             Ready to transform
             <br />
 
@@ -395,7 +395,7 @@ export default function Home() {
               href="/gallery"
               className="inline-flex items-center border border-border px-8 py-4 font-mono text-sm uppercase tracking-[0.2em] transition-colors hover:border-primary hover:text-primary"
             >
-              View Portfolio
+             Portfolio
             </Link>
 
           </div>

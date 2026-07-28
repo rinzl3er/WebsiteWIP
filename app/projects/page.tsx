@@ -71,7 +71,7 @@ const locations = [
   },
   {
     name: "Shillong",
-    projects: ["The Yeast Company"]
+    projects: ["The Yeastern Civilisation"]
   },
   {
     name: "Nagpur",

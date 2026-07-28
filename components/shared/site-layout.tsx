@@ -40,7 +40,7 @@ function Logo({ large = false }: { large?: boolean }) {
         height={70}
         priority
         className={`w-auto object-contain ${
-          large ? "h-14" : "h-11"
+          large ? "h-24 sm:h-28" : "h-11"
         }`}
       />
     </Link>
@@ -89,7 +89,7 @@ function Header() {
 
   return (
     <header className="sticky top-0 z-50 border-b border-border/60 bg-background/80 backdrop-blur-xl">
-      <div className="mx-auto grid max-w-7xl grid-cols-[minmax(0,1fr)_auto] items-center gap-4 px-4 py-5 sm:px-6 lg:px-8">
+      <div className="mx-auto grid max-w-7xl grid-cols-[minmax(0,1fr)_auto] items-center gap-4 px-4 py-0 sm:px-6 lg:px-8">
         <Logo large />
 
         <nav className="hidden items-center gap-1 md:flex">
@@ -209,11 +209,11 @@ function Footer() {
             rel="noreferrer"
           >
             <Image
-              src="/assets/MADRIX_Logo_whiteTypo_onBlack_noBg-768x288.png"
+              src="/assets/MADRIX_Logo_Web_whiteTypo_onBlack_noBg.png"
               alt="MADRIX"
-              width={220}
-              height={80}
-              className="h-14 w-auto object-contain"
+              width={300}
+              height={150}
+              
             />
           </a>
 

@@ -62,7 +62,7 @@ const row2Logos = [
   "goose and the gridiron.jpg",
   "glitte mumbai.png",
   "Spice laundry.png",
-  "Tafe mumbai.png",
+  "Tafe Mumbai.png",
   "145 mumbai.jpg",
   "drunkyard mumbai.png",
   "Hammer and song.png",

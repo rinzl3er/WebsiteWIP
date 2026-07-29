@@ -17,15 +17,15 @@ const locations = [
     projects: [
       "Lucy Lou", "Megumi", "Goose and the Gridiron", "House of Lords", "Glitte",
       "Oh Pitara", "Spice Laundry", "Tafe", "145", "Drunkyard", "Playboy Club Mumbai",
-      "Sin City", "B-Kitchen & Bar", "Hammer & Song", "Invincible", "Tap, Worli",
-      "The Yellow Lights School of Performing Arts", "...Many More"
+      "Sin City", "B-Kitchen & Bar", "Hammer & Song", "Invincible", "Tap",
+      "The Yellow Lights School of Performing Arts", "...And More"
     ]
   },
   {
     name: "Hyderabad",
     projects: [
       "Marquee", "King'dome", "Toggo", "Karimnagar Cable Bridge", "Crossbreed",
-      "Nicos", "Heart Cup Coffee, Gachibowli", "Airlive, Gachibowli", "Skyhy",
+      "Nicos", "Heart Cup Coffee", "Airlive", "Skyhy",
       "Berlin", "Birdbox", "T-Hub", "Raasta", "Animal Park"
     ]
   },

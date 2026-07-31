@@ -19,9 +19,9 @@ const capabilities = ["Room acoustic modelling & treatment", "Sound isolation & 
 const teamMembers: { name: string; role: string; image: string }[] = [
   // Add future members here:
   // { name: "Team Member", role: "Role", image: "photo-filename.jpg" },
-  { name: "Sid", role: "Trainee", image: "sample.jpg" },
-  { name: "Siddharth", role: "intern", image: "sample.jpg" },
-  { name: "abc", role: "designer", image: "sample.jpg" },
+  { name: "empA", role: "Trainee", image: "sample.jpg" },
+  { name: "empB", role: "intern", image: "sample.jpg" },
+  { name: "empC", role: "designer", image: "sample.jpg" },
 ];
 
 export default function AboutPage() {
@@ -135,7 +135,7 @@ export default function AboutPage() {
           </div>
 
           <div className="px-4 py-4">
-            <h3 className="text-lg font-black leading-none tracking-tight">
+            <h3 className="text-base font-black leading-none tracking-tight sm:text-lg"> 
               {member.name}
             </h3>
             <p className="mt-2 font-mono text-[10px] uppercase tracking-[0.22em] text-primary/80">

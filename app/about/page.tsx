@@ -118,7 +118,7 @@ export default function AboutPage() {
       / Our Team
     </span>
 
-    <div className="mt-10 grid grid-cols-[repeat(auto-fill,180px)] gap-6">
+    <div className="mt-10 grid grid-cols-2 gap-4 sm:grid-cols-[repeat(auto-fill,180px)] sm:gap-6">
       {teamMembers.map((member) => (
         <div
           key={member.name}

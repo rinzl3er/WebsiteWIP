@@ -20,6 +20,8 @@ const teamMembers: { name: string; role: string; image: string }[] = [
   // Add future members here:
   // { name: "Team Member", role: "Role", image: "photo-filename.jpg" },
   { name: "Sid", role: "Trainee", image: "sample.jpg" },
+  { name: "Siddharth", role: "intern", image: "sample.jpg" },
+  { name: "abc", role: "designer", image: "sample.jpg" },
 ];
 
 export default function AboutPage() {
@@ -116,11 +118,11 @@ export default function AboutPage() {
       / Our Team
     </span>
 
-    <div className="mt-10 grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
+    <div className="mt-10 grid grid-cols-[repeat(auto-fill,180px)] gap-6">
       {teamMembers.map((member) => (
         <div
           key={member.name}
-          className="group mx-auto w-full max-w-[180px] overflow-hidden rounded-2xl border border-primary/30 bg-ink-soft shadow-[0_24px_70px_rgba(0,0,0,0.35)] transition-all duration-500 hover:border-primary/50"
+          className="group w-full overflow-hidden rounded-2xl border border-primary/30 bg-ink-soft shadow-[0_24px_70px_rgba(0,0,0,0.35)] transition-all duration-500 hover:border-primary/50"
         >
           <div className="relative aspect-square overflow-hidden">
             <Image

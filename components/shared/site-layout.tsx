@@ -89,7 +89,7 @@ function Header() {
 
   return (
     <header className="sticky top-0 z-50 border-b border-border/60 bg-background/80 backdrop-blur-xl">
-      <div className="mx-auto grid max-w-7xl grid-cols-[minmax(0,1fr)_auto] items-center gap-4 px-4 py-0 sm:px-6 lg:px-8">
+      <div className="mx-auto grid max-w-7xl grid-cols-[minmax(0,1fr)_auto] items-center gap-4 px-4 py-2 sm:px-6 sm:py-3 lg:px-8">
         <Logo large />
 
         <nav className="hidden items-center gap-1 md:flex">
@@ -225,7 +225,7 @@ function Footer() {
         </div>
 
         <div>
-          <h4 className="font-mono text-[11px] uppercase tracking-[0.25em] text-primary">
+          <h4 className="font-mono text-[13px] uppercase tracking-[0.25em] text-primary">
             Navigate
           </h4>
 
@@ -244,7 +244,7 @@ function Footer() {
         </div>
 
         <div>
-          <h4 className="font-mono text-[11px] uppercase tracking-[0.25em] text-primary">
+          <h4 className="font-mono text-[13px] uppercase tracking-[0.25em] text-primary">
             Contact
           </h4>
 
@@ -387,7 +387,7 @@ export function PageHeader({
         >
           <span className="h-px w-10 bg-primary" />
 
-          <span className="font-mono text-[11px] uppercase tracking-[0.3em] text-primary">
+          <span className="font-mono text-[18px] uppercase tracking-[0.3em] text-primary">
             {eyebrow}
           </span>
         </motion.div>

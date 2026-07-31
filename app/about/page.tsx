@@ -16,6 +16,12 @@ export const metadata: Metadata = {
 
 const capabilities = ["Room acoustic modelling & treatment", "Sound isolation & noise control", "Home theatre design & calibration", "Auditorium & worship space acoustics", "Architectural & decorative lighting", "MADRIX augmented, pixel-mapped LED control", "AV integration & boardroom automation", "Line-array & distributed audio systems"];
 
+const teamMembers: { name: string; role: string; image: string }[] = [
+  // Add future members here:
+  // { name: "Team Member", role: "Role", image: "photo-filename.jpg" },
+  { name: "Sid", role: "Trainee", image: "sample.jpg" },
+];
+
 export default function AboutPage() {
   return (
     <SiteLayout>
@@ -25,7 +31,7 @@ export default function AboutPage() {
       <section className="relative z-10 py-20 lg:py-28">
         <div className="mx-auto grid max-w-7xl gap-16 px-4 sm:px-6 lg:grid-cols-2 lg:px-8">
           <div>
-            <span className="font-mono text-[11px] uppercase tracking-[0.3em] text-primary">/ Practice</span>
+            <span className="font-mono text-[16px] uppercase tracking-[0.3em] text-primary">/ Practice</span>
             <h2 className="mt-4 text-3xl font-black leading-tight sm:text-4xl">Sound, light and image — treated as one discipline.</h2>
             <div className="mt-6 space-y-5 text-muted-foreground">
               <p>Too often, acoustics, lighting and AV are designed in isolation. The result is a space shaped by separate systems rather than a singular vision.</p>
@@ -34,7 +40,7 @@ export default function AboutPage() {
             </div>
           </div>
           <div className="border border-border bg-ink-soft p-8 sm:p-10">
-            <h3 className="font-mono text-[11px] uppercase tracking-[0.25em] text-primary">/ Capabilities</h3>
+            <h3 className="font-mono text-[16px] uppercase tracking-[0.25em] text-primary">/ Capabilities</h3>
             <ul className="mt-6 grid gap-3 sm:grid-cols-2">
               {capabilities.map((capability) => <li key={capability} className="flex items-start gap-3 text-base text-foreground"><span className="mt-2 h-1 w-1 shrink-0 rounded-full bg-primary" /><span>{capability}</span></li>)}
             </ul>
@@ -45,7 +51,7 @@ export default function AboutPage() {
       {/* ── Meet the Founder ── */}
       <section className="relative z-10 bg-transparent py-16 lg:py-24">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <span className="font-mono text-[11px] uppercase tracking-[0.3em] text-primary">/ Meet the Founder</span>
+          <span className="font-mono text-[16px] uppercase tracking-[0.3em] text-primary">/ Meet the Founder</span>
 
           <div className="mt-10 grid gap-12 lg:grid-cols-[420px_1fr] lg:items-start lg:gap-12">
             {/* Portrait */}
@@ -60,7 +66,7 @@ export default function AboutPage() {
               />
               <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-ink via-ink/80 to-transparent px-7 pb-7 pt-20">
                 <h2 className="text-3xl font-black leading-none tracking-tight">Chintan Patel</h2>
-                <p className="mt-2 font-mono text-[10px] uppercase tracking-[0.28em] text-primary/80">Founder &amp; Principal Consultant</p>
+                <p className="mt-2 font-mono text-[14px] uppercase tracking-[0.28em] text-primary/80">Founder &amp; Principal Consultant</p>
               </div>
             </div>
 
@@ -87,7 +93,7 @@ export default function AboutPage() {
               {/* Disciplines row */}
               <div className="mt-10 flex flex-wrap gap-3">
                 {["Acoustics", "Lighting Design", "AV Integration", "MADRIX Control"].map((d) => (
-                  <span key={d} className="border border-border/60 px-4 py-2 font-mono text-[10px] uppercase tracking-[0.25em] text-muted-foreground transition-colors duration-300 hover:border-primary/50 hover:text-primary">
+                  <span key={d} className="border border-border/60 px-4 py-2 font-mono text-[12px] uppercase tracking-[0.25em] text-muted-foreground transition-colors duration-300 hover:border-primary/50 hover:text-primary">
                     {d}
                   </span>
                 ))}
@@ -98,6 +104,48 @@ export default function AboutPage() {
       </section>
 
       {/* ── CTA ── */}
+      <div className="relative z-10 mx-auto max-w-7xl px-4 py-8 sm:px-6 lg:px-8">
+        <div className="h-px w-full bg-primary/60" />
+      </div>
+
+      
+{/* Add team photos to public/team-photos, then add matching objects to teamMembers above. */}
+<section className="relative z-10 bg-transparent py-16 lg:py-24">
+  <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+    <span className="font-mono text-[16px] uppercase tracking-[0.3em] text-primary">
+      / Our Team
+    </span>
+
+    <div className="mt-10 grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
+      {teamMembers.map((member) => (
+        <div
+          key={member.name}
+          className="group mx-auto w-full max-w-[180px] overflow-hidden rounded-2xl border border-primary/30 bg-ink-soft shadow-[0_24px_70px_rgba(0,0,0,0.35)] transition-all duration-500 hover:border-primary/50"
+        >
+          <div className="relative aspect-square overflow-hidden">
+            <Image
+              src={`/team-photos/${member.image}`}
+              alt={`${member.name} portrait`}
+              fill
+              sizes="180px"
+              className="object-cover transition-transform duration-700 group-hover:scale-[1.03]"
+            />
+          </div>
+
+          <div className="px-4 py-4">
+            <h3 className="text-lg font-black leading-none tracking-tight">
+              {member.name}
+            </h3>
+            <p className="mt-2 font-mono text-[10px] uppercase tracking-[0.22em] text-primary/80">
+              {member.role}
+            </p>
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
       <section className="relative z-10 py-24">
         <div className="mx-auto flex max-w-5xl flex-col items-start gap-8 px-4 sm:px-6 md:flex-row md:items-center md:justify-between lg:px-8">
           <h2 className="text-3xl font-black sm:text-4xl">Bring us in early. <span className="text-primary">Save time later.</span></h2>

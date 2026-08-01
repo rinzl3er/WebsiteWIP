@@ -19,7 +19,7 @@ const capabilities = ["Room acoustic modelling & treatment", "Sound isolation & 
 const teamMembers: { name: string; role: string; image: string }[] = [
   // Add future members here:
   // { name: "Team Member", role: "Role", image: "photo-filename.jpg" },
-  { name: "empA", role: "Trainee", image: "sample.jpg" },
+  { name: "Yash Ghadge", role: "Lighting Design Engineer", image: "Yash_Ghadge.jpg" },
   { name: "empB", role: "intern", image: "sample.jpg" },
   { name: "empC", role: "designer", image: "sample.jpg" },
 ];

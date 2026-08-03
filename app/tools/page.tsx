@@ -39,7 +39,7 @@ export default function ToolsPage() {
         showBorder={false}
         eyebrow="Resources"
         title="Engineering Tools"
-        intro="Get general estimations for room acoustics and lighting configurations. Built to assist with quick preliminary budgeting and scoping."
+        intro="Get general preliminary estimations for room acoustics and lighting configurations. Built to assist with quick and scoping."
         glowPosition="center"
         animateGlow={true}
       />

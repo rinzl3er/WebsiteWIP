@@ -18,6 +18,15 @@ import type { StripType, CalculationResults, DviInputMethod, DviProjectItem } fr
 
 type DmxTab = "led_strip" | "pixel_count";
 
+interface DmxFixtureItem {
+  id: string;
+  name: string;
+  inputMethod: DmxTab;
+  channels: number;
+  universes: number;
+  parameters: string;
+}
+
 export function MadrixCalculator() {
   // DMX Calculator Tab
   const [dmxTab, setDmxTab] = useState<DmxTab>("led_strip");
@@ -29,6 +38,9 @@ export function MadrixCalculator() {
   // Pixel Calculator States
   const [pixelCount, setPixelCount] = useState<string>("0");
   const [channelsPerPixel, setChannelsPerPixel] = useState<string>("0");
+  const [dmxFixtureItems, setDmxFixtureItems] = useState<DmxFixtureItem[]>([]);
+  const [editingFixtureId, setEditingFixtureId] = useState<string | null>(null);
+  const [editingFixtureNameValue, setEditingFixtureNameValue] = useState<string>("");
 
   // DVI Calculator Input States
   const [dviInputMethod, setDviInputMethod] = useState<DviInputMethod>("resolution");
@@ -70,6 +82,10 @@ export function MadrixCalculator() {
       if (saved) {
         setDviProjectItems(JSON.parse(saved));
       }
+      const savedDmx = localStorage.getItem("chintan-patel-madrix-dmx-fixtures");
+      if (savedDmx) {
+        setDmxFixtureItems(JSON.parse(savedDmx));
+      }
     } catch (e) {
       console.error(e);
     }
@@ -81,6 +97,12 @@ export function MadrixCalculator() {
       localStorage.setItem("chintan-patel-madrix-dvi-project", JSON.stringify(dviProjectItems));
     }
   }, [dviProjectItems, isMounted]);
+
+  useEffect(() => {
+    if (isMounted) {
+      localStorage.setItem("chintan-patel-madrix-dmx-fixtures", JSON.stringify(dmxFixtureItems));
+    }
+  }, [dmxFixtureItems, isMounted]);
 
   // Calculations: DMX
   const stripResults = useMemo(() => {
@@ -99,6 +121,12 @@ export function MadrixCalculator() {
 
   // Active DMX Results & Channels
   const activeDmxResults = dmxTab === "led_strip" ? stripResults : pixelResults;
+
+  const totalDmxChannels = useMemo(() => {
+    return dmxFixtureItems.reduce((sum, item) => sum + item.channels, 0);
+  }, [dmxFixtureItems]);
+
+  const requiredDmxUniverses = useMemo(() => Math.ceil(totalDmxChannels / 512), [totalDmxChannels]);
 
   // Calculations: DVI Live Item
   const liveDviPixels = useMemo(() => {
@@ -190,6 +218,52 @@ export function MadrixCalculator() {
 
   const clearDviProject = () => {
     setDviProjectItems([]);
+  };
+
+  const addDmxFixture = () => {
+    if (activeDmxResults.channels <= 0) return;
+
+    const parameters = dmxTab === "led_strip"
+      ? `${stripType.toUpperCase().replace("_", " ")} | ${stripLength} m`
+      : `${pixelCount} px | ${channelsPerPixel} ch/px`;
+
+    const newItem: DmxFixtureItem = {
+      id: `${Date.now()}-${Math.random().toString(36).slice(2, 8)}`,
+      name: `Fixture ${dmxFixtureItems.length + 1}`,
+      inputMethod: dmxTab,
+      channels: activeDmxResults.channels,
+      universes: activeDmxResults.universes,
+      parameters,
+    };
+
+    setDmxFixtureItems((prev) => [...prev, newItem]);
+  };
+
+  const duplicateDmxFixture = (item: DmxFixtureItem) => {
+    setDmxFixtureItems((prev) => [
+      ...prev,
+      { ...item, id: `${Date.now()}-${Math.random().toString(36).slice(2, 8)}`, name: `${item.name} (Copy)` },
+    ]);
+  };
+
+  const deleteDmxFixture = (id: string) => {
+    setDmxFixtureItems((prev) => prev.filter((item) => item.id !== id));
+  };
+
+  const clearDmxFixtures = () => {
+    setDmxFixtureItems([]);
+  };
+
+  const startRenameFixture = (item: DmxFixtureItem) => {
+    setEditingFixtureId(item.id);
+    setEditingFixtureNameValue(item.name);
+  };
+
+  const saveRenameFixture = (id: string) => {
+    setDmxFixtureItems((prev) =>
+      prev.map((item) => (item.id === id ? { ...item, name: editingFixtureNameValue } : item))
+    );
+    setEditingFixtureId(null);
   };
 
   const startRename = (item: DviProjectItem) => {
@@ -350,6 +424,26 @@ export function MadrixCalculator() {
                   </h4>
                   <ResultsList results={activeDmxResults} />
                 </div>
+
+                <div className="border-t border-border/40 pt-6">
+                  <div className="flex flex-wrap items-center justify-between gap-4">
+                    <div>
+                      <h4 className="font-mono text-[10px] uppercase tracking-[0.18em] text-primary font-bold">
+                        Live Calculation (Current Fixture)
+                      </h4>
+                      <p className="mt-2 text-2xl font-black text-white font-mono truncate max-w-[320px]" title={String(activeDmxResults.channels)}>
+                        {activeDmxResults.channels} <span className="text-xs text-muted-foreground font-normal">channels</span>
+                      </p>
+                    </div>
+                    <button
+                      onClick={addDmxFixture}
+                      disabled={activeDmxResults.channels <= 0}
+                      className="tool-primary disabled:opacity-40 disabled:pointer-events-none"
+                    >
+                      Add To Fixture List
+                    </button>
+                  </div>
+                </div>
               </div>
 
               {/* License recommendation */}
@@ -358,25 +452,137 @@ export function MadrixCalculator() {
               </div>
             </div>
 
-            {/* Right Column: Information card for DMX */}
-            <div className="lg:col-span-5 flex flex-col justify-between rounded-2xl border border-border bg-ink-soft p-6 sm:p-8">
-              <div className="space-y-4">
-                <h3 className="text-xl font-bold text-white">About DMX Output</h3>
-                <p className="text-xs text-muted-foreground leading-relaxed">
-                  DMX512 controls individual channels (RGB, RGBW, etc.). The MADRIX software outputs control signals across 512-channel DMX universes.
-                </p>
-                <div className="rounded-xl border border-border bg-ink p-4 space-y-2 text-xs font-mono text-muted-foreground">
-                  <div className="flex justify-between">
-                    <span>1 DMX Universe</span>
-                    <span className="text-white">512 Channels</span>
+            {/* Right Column: Fixture List & Information */}
+            <div className="lg:col-span-5 space-y-6">
+              {/* DMX Fixture List Card */}
+              <div className="rounded-2xl border border-border bg-ink-soft p-6 sm:p-8 space-y-6">
+                <div className="flex justify-between items-center">
+                  <div className="flex items-center gap-2">
+                    <Layers3 className="h-5 w-5 text-primary" />
+                    <h3 className="text-xl font-bold text-white">DMX Fixture List</h3>
                   </div>
-                  <div className="flex justify-between border-t border-border/40 pt-2">
-                    <span>1 MADRIX NEBULA</span>
-                    <span className="text-white">12 Universes</span>
+                  <span className="rounded-full border border-primary/30 bg-primary/5 px-2.5 py-0.5 font-mono text-[10px] text-primary">
+                    {dmxFixtureItems.length} fixtures
+                  </span>
+                </div>
+
+                {/* Items List */}
+                <div className="space-y-3 max-h-[360px] overflow-y-auto pr-1">
+                  {dmxFixtureItems.length === 0 ? (
+                    <div className="text-sm text-muted-foreground py-10 text-center border border-dashed border-border rounded-xl">
+                      No fixtures added yet.
+                    </div>
+                  ) : (
+                    dmxFixtureItems.map((item) => (
+                      <div key={item.id} className="rounded-xl border border-border bg-ink p-4 space-y-2 group transition hover:border-primary/20">
+                        <div className="flex items-start justify-between gap-3">
+                          {editingFixtureId === item.id ? (
+                            <div className="flex items-center gap-1.5 flex-1">
+                              <input
+                                type="text"
+                                value={editingFixtureNameValue}
+                                onChange={(e) => setEditingFixtureNameValue(e.target.value)}
+                                className="tool-input h-8 text-xs"
+                                autoFocus
+                                onKeyDown={(e) => {
+                                  if (e.key === "Enter") saveRenameFixture(item.id);
+                                }}
+                              />
+                              <button
+                                onClick={() => saveRenameFixture(item.id)}
+                                className="text-[10px] font-mono uppercase tracking-wider font-bold py-1.5 px-3 rounded bg-primary text-primary-foreground hover:brightness-110 transition"
+                              >
+                                Save
+                              </button>
+                            </div>
+                          ) : (
+                            <div className="min-w-0 flex-1">
+                              <p className="truncate font-semibold text-white text-sm">{item.name}</p>
+                              <p className="text-[9px] text-muted-foreground uppercase font-mono tracking-wider">
+                                {item.inputMethod.replace("_", " ")}
+                              </p>
+                            </div>
+                          )}
+
+                          <div className="flex items-center gap-1">
+                            <button
+                              onClick={() => startRenameFixture(item)}
+                              className="tool-icon h-7 w-7"
+                              title="Rename Fixture"
+                            >
+                              <Pencil className="h-3 w-3" />
+                            </button>
+                            <button
+                              onClick={() => duplicateDmxFixture(item)}
+                              className="tool-icon h-7 w-7"
+                              title="Duplicate Fixture"
+                            >
+                              <Copy className="h-3 w-3" />
+                            </button>
+                            <button
+                              onClick={() => deleteDmxFixture(item.id)}
+                              className="tool-icon h-7 w-7 hover:border-red-500 hover:text-red-500"
+                              title="Delete Fixture"
+                            >
+                              <Trash2 className="h-3 w-3" />
+                            </button>
+                          </div>
+                        </div>
+
+                        <div className="flex justify-between items-end border-t border-border/30 pt-2 text-[10px] font-mono">
+                          <span className="text-muted-foreground truncate max-w-[180px]" title={item.parameters}>
+                            {item.parameters}
+                          </span>
+                          <span className="text-primary font-bold">{item.channels} ch</span>
+                        </div>
+                      </div>
+                    ))
+                  )}
+                </div>
+
+                {/* Total and Reset */}
+                <div className="border-t border-border/40 pt-4 space-y-3">
+                  <div className="flex justify-between items-center text-sm font-mono">
+                    <span className="text-muted-foreground">Total DMX Channels:</span>
+                    <span className="text-white font-black text-lg">{formatNumber(totalDmxChannels)} ch</span>
                   </div>
-                  <div className="flex justify-between border-t border-border/40 pt-2">
-                    <span>MADRIX STELLA / ORION</span>
-                    <span className="text-white">Direct SPI/DMX Control</span>
+
+                  <div className="flex justify-between items-center text-sm font-mono">
+                    <span className="text-muted-foreground">Required DMX Universes:</span>
+                    <span className="text-white font-black text-lg">{formatNumber(requiredDmxUniverses)} U</span>
+                  </div>
+
+                  {dmxFixtureItems.length > 0 && (
+                    <button
+                      onClick={clearDmxFixtures}
+                      className="w-full text-center py-2 text-[10px] font-mono uppercase tracking-wider text-muted-foreground hover:text-red-400 transition"
+                    >
+                      Clear DMX Fixtures
+                    </button>
+                  )}
+                </div>
+              </div>
+
+              {/* Information card for DMX */}
+              <div className="flex flex-col justify-between rounded-2xl border border-border bg-ink-soft p-6 sm:p-8">
+                <div className="space-y-4">
+                  <h3 className="text-xl font-bold text-white">About DMX Output</h3>
+                  <p className="text-xs text-muted-foreground leading-relaxed">
+                    DMX512 controls individual channels (RGB, RGBW, etc.). The MADRIX software outputs control signals across 512-channel DMX universes.
+                  </p>
+                  <div className="rounded-xl border border-border bg-ink p-4 space-y-2 text-xs font-mono text-muted-foreground">
+                    <div className="flex justify-between">
+                      <span>1 DMX Universe</span>
+                      <span className="text-white">512 Channels</span>
+                    </div>
+                    <div className="flex justify-between border-t border-border/40 pt-2">
+                      <span>1 MADRIX NEBULA</span>
+                      <span className="text-white">12 Universes</span>
+                    </div>
+                    <div className="flex justify-between border-t border-border/40 pt-2">
+                      <span>MADRIX STELLA / ORION</span>
+                      <span className="text-white">Direct SPI/DMX Control</span>
+                    </div>
                   </div>
                 </div>
               </div>

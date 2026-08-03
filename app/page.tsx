@@ -31,34 +31,34 @@ const services = [
     title: "Acoustics",
     tag: "When sound matters",
     desc:
-      "Room acoustics, sound isolation and noise control from home theatres to auditoriums, studios and worship spaces.",
+      "Room acoustic design, sound isolation and noise control across residential, institutional and commercial applications.",
     overview:
-      "We design acoustic environments that enhance clarity, comfort and performance. Whether it is a home theatre, auditorium, recording studio, worship space or commercial facility, every solution is engineered to deliver balanced sound, effective noise control and seamless architectural integration.",
+      "We design acoustic environments that elevate clarity, comfort, and sonic performance. From intimate home theatres to expansive auditoria, recording studios, worship spaces and commercial venues—every solution is calibrated to deliver balanced acoustics, effective noise isolation, and seamless architectural integration.",
   },
   {
     icon: Lightbulb,
     title: "Lighting",
     tag: "When light matters",
     desc:
-      "Architectural, decorative and pixel-mapped LED lighting powered by MADRIX.",
+      "Architectural, decorative and pixel-mapped LED lighting systems powered by MADRIX control.",
     overview:
-      "Lighting shapes emotion, architecture and atmosphere. We create intelligent lighting systems that combine aesthetics with functionality.",
+      "Light is the foundational element of spatial perception. It shapes emotion, defines architecture, and establishes atmosphere. We create intelligent lighting systems that seamlessly merge aesthetic vision with technical precision, transforming spaces through the strategic orchestration of illumination.",
   },
   {
     icon: MonitorPlay,
     title: "Audio Visual",
     tag: "When AV matters",
     desc:
-      "Professional AV systems designed for reliability, ease of operation and outstanding presentation quality.",
+      "Professional AV integration, boardroom automation, line-array and distributed audio systems.",
     overview:
-      "Professional AV systems designed for reliability, ease of operation and outstanding presentation quality.",
+      "Audiovisual technology serves a singular purpose: to communicate with clarity and impact. We design integrated AV systems engineered for reliability, intuitive operation, and exceptional presentation quality. From boardroom installations to immersive venue environments, every system is conceived to amplify architectural intent and elevate the user experience.",
   },
   {
     icon: Armchair,
     title: "Interiors",
     tag: "WHEN DESIGN MATTERS",
-    desc: "Residential and commercial interior spaces thoughtfully designed with architecture, lighting, acoustics and functionality in perfect balance.",
-    overview: "Residential and commercial interior spaces thoughtfully designed with architecture, lighting, acoustics and functionality in perfect balance.",
+    desc: "Residential and commercial spaces orchestrated through integrated design, light, sound and architecture.",
+    overview: "Residential and commercial interior spaces conceived as unified environments. We orchestrate architecture, lighting, acoustics, and functionality into cohesive sensory experiences where every element serves the whole.",
     href: "/interiors",
   },
 ];
@@ -256,9 +256,7 @@ export default function Home() {
               {...revealProps}
               className="mt-8 max-w-2xl text-lg leading-8 text-muted-foreground"
             >
-              We shape how spaces are seen, heard and experienced.
-              Acoustics, light and sound considered together,
-              from design through execution.
+              We shape how spaces are perceived through sight, sound, and spatial presence. Acoustics, light, and audio integrated seamlessly from conception to completion.
             </motion.p>
 
             <motion.div
@@ -309,10 +307,7 @@ export default function Home() {
             </h2>
 
             <p className="mt-6 text-lg leading-8 text-muted-foreground">
-              We combine acoustics, lighting and
-              audio visual engineering into one
-              seamless experience from design
-              through execution.
+              We integrate acoustics, lighting, and audiovisual engineering into a singular, cohesive experience from conception through realization.
             </p>
 
           </motion.div>
@@ -373,11 +368,7 @@ export default function Home() {
           </h2>
 
           <p className="mx-auto mt-8 max-w-2xl text-lg leading-8 text-muted-foreground">
-            Whether you&apos;re designing a home theatre,
-            auditorium, studio, hospitality venue or
-            commercial building, let&apos;s create an
-            experience that looks stunning and sounds
-            exceptional.
+            Whether you're designing a home theatre, auditorium, studio, hospitality venue or commercial building, let's create an environment that looks exceptional and performs flawlessly.
           </p>
 
           <div className="mt-12 flex flex-wrap justify-center gap-4">

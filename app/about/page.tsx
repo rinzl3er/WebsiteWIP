@@ -20,25 +20,26 @@ const teamMembers: { name: string; role: string; image: string }[] = [
   // Add future members here:
   // { name: "Team Member", role: "Role", image: "photo-filename.jpg" },
   { name: "Yash Ghadge", role: "Lighting Design Engineer", image: "Yash_Ghadge.jpg" },
-  { name: "empB", role: "intern", image: "sample.jpg" },
-  { name: "empC", role: "designer", image: "sample.jpg" },
-];
+  { name: "Employee", role: "N/A", image: "sample.jpg" },
+]; 
 
 export default function AboutPage() {
   return (
     <SiteLayout>
       <Particles className="-z-10" />
-      <PageHeader className="bg-transparent" showGridLines={false} showBorder={false} glowPosition="center" animateGlow={true} eyebrow="About us" title="Where sound, light and space come together." intro="We work across acoustics, architectural lighting and audio visual design to shape spaces as complete experiences. From private residences to hospitality and performance venues, each project begins with the space itself." />
+      <PageHeader className="bg-transparent" showGridLines={false} showBorder={false} glowPosition="center" animateGlow={true} eyebrow="About us" title="Where sound, light and space converge." intro="We transform spaces through integrated light, sound, and spatial design. We treat each discipline as a medium for heightening architectural intention and creating immersive sensory experiences.
+
+From residential to hospitality and performance venues, we begin by understanding the space itself and then craft experiences that engage every dimension of human perception.." />
 
       <section className="relative z-10 py-20 lg:py-28">
         <div className="mx-auto grid max-w-7xl gap-16 px-4 sm:px-6 lg:grid-cols-2 lg:px-8">
           <div>
             <span className="font-mono text-[16px] uppercase tracking-[0.3em] text-primary">/ Practice</span>
-            <h2 className="mt-4 text-3xl font-black leading-tight sm:text-4xl">Sound, light and image — treated as one discipline.</h2>
+            <h2 className="mt-4 text-3xl font-black leading-tight sm:text-4xl">Sound, light and image — unified as one discipline.</h2>
             <div className="mt-6 space-y-5 text-muted-foreground">
-              <p>Too often, acoustics, lighting and AV are designed in isolation. The result is a space shaped by separate systems rather than a singular vision.</p>
-              <p>We work differently. One studio owns the whole environment: the room&apos;s acoustic behaviour, the way light moves through it, and the AV systems that live inside it, so every layer supports the others.</p>
-              <p>With <span className="text-emerald-600">MADRIX</span> as our official dealer and consultant, we specialise in software-driven LED lighting control alongside our acoustic and AV work.</p>
+              <p>Too often, acoustics, lighting, and audiovisual design are conceived in isolation. The result: fragmented spaces shaped by competing systems rather than a singular vision.</p>
+              <p>We approach differently. One studio owns the entire environment—the room's acoustic character, the movement of light, and the audiovisual systems within it. Every layer amplifies the others.</p>
+              <p>With <span className="text-emerald-600">MADRIX</span> as our official dealer and consultant, we specialize in software-driven LED lighting control integrated seamlessly with our acoustic and audiovisual expertise.</p>
             </div>
           </div>
           <div className="border border-border bg-ink-soft p-8 sm:p-10">
@@ -79,16 +80,16 @@ export default function AboutPage() {
 
               {/* Pull-quote — real sentence from bio */}
               <blockquote className="mt-8 text-xl font-bold leading-snug tracking-tight text-foreground sm:text-2xl lg:text-[1.65rem] lg:leading-[1.3]">
-                &ldquo;He balances detail, character and fundamentals — working closely with architects, manufacturers and installation teams to achieve seamless integration of technologies.&rdquo;
+                &ldquo;He balances precision, character, and vision—orchestrating seamless integration across acoustics, lighting, and technology with architects, manufacturers, and installation teams.&rdquo;
               </blockquote>
 
               {/* Editorial prose */}
               <div className="mt-8 space-y-5 text-base leading-relaxed text-muted-foreground">
                 <p>
-                  Chintan is an electrical engineer whose foundation in systems-led thinking shapes every project he touches. As a one-stop consultant for audio, video, lighting design and acoustic works, he brings a rare cross-disciplinary perspective — one where sound, light and technology are considered together from day one.
+                  Chintan is an electrical engineer whose foundation in systems-led thinking informs every project. As a cross-disciplinary consultant for audio, lighting, and acoustic design, he brings a rare perspective: one where sound, light, and technology are conceived as a unified language from inception.
                 </p>
                 <p>
-                  His projects range from home theatres to restaurants, clubs, hotels and luxury homes, moving between minimalist, rich ornate classic and vibrant styles. Whether the brief calls for an intimate listening room or a large-scale hospitality venue, the approach remains the same: start with the space, understand how it will be experienced, and let that guide every technical decision.
+                   His work spans intimate home theatres to expansive hospitality venues—from minimalist refinement to richly ornate spaces. Regardless of scale or aesthetic, his methodology remains constant: understand the space, envision the experience, let that guide every technical decision.
                 </p>
               </div>
 

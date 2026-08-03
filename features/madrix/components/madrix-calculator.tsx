@@ -315,9 +315,6 @@ export function MadrixCalculator() {
               <p className="font-mono text-xs uppercase tracking-[0.2em] text-primary">01 / DMX Section</p>
               <h2 className="mt-2 text-3xl font-bold">DMX Estimator</h2>
             </div>
-            <span className="rounded-full border border-primary/30 bg-primary/5 px-3 py-1 font-mono text-xs text-primary">
-              Channel-based
-            </span>
           </div>
 
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 mt-8">
@@ -597,9 +594,6 @@ export function MadrixCalculator() {
               <p className="font-mono text-xs uppercase tracking-[0.2em] text-primary">02 / DVI Section</p>
               <h2 className="mt-2 text-3xl font-bold">DVI Estimator</h2>
             </div>
-            <span className="rounded-full border border-primary/30 bg-primary/5 px-3 py-1 font-mono text-xs text-primary">
-              Project Builder
-            </span>
           </div>
 
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 mt-8">

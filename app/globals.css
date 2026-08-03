@@ -299,7 +299,44 @@
   }
 }
 
+@keyframes metallic-sweep {
+  0%,
+  2% {
+    background-position: 180% center, 0 0;
+  }
+
+  22%,
+  26% {
+    background-position: -80% center, 0 0;
+  }
+
+  100% {
+    background-position: 180% center, 0 0;
+  }
+}
+
 @layer utilities {
+  .metallic-sweep {
+    background-image:
+      linear-gradient(
+        110deg,
+        transparent 0%,
+        transparent 40%,
+        rgba(200, 200, 210, 0.3) 46%,
+        #ffffff 50%,
+        rgba(200, 200, 210, 0.3) 54%,
+        transparent 60%,
+        transparent 100%
+      ),
+      linear-gradient(currentColor, currentColor);
+    background-clip: text;
+    background-repeat: no-repeat;
+    background-size: 250% 100%, 100% 100%;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: metallic-sweep 8s ease-in-out infinite;
+  }
+
   .animate-marquee {
     animation: marquee 58s linear infinite;
   }

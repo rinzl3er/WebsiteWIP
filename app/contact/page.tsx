@@ -4,7 +4,6 @@ import type { ReactNode } from "react";
 import { FaEnvelope, FaFacebookF, FaInstagram, FaMapMarkerAlt, FaPhone, FaWhatsapp, FaYoutube } from "react-icons/fa";
 import { PageHeader, SiteLayout } from "@/components/shared/site-layout";
 import { Particles } from "@/components/shared/particles";
-import { MetallicSweep } from "@/components/shared/metallic-sweep";
 
 export const metadata: Metadata = {
   title: "Contact — Chintan Patel",
@@ -34,7 +33,7 @@ export default function ContactPage() {
         eyebrow="Contact"
         title={
           <>
-            Let&apos;s design <MetallicSweep>extraordinary</MetallicSweep> spaces.
+            Let's design extraordinary spaces.
           </>
         }
         intro="Share your brief, plans, or vision. We'll help you create experiences that leave a lasting impression."

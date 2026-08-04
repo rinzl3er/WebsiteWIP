@@ -382,12 +382,13 @@ export default function Home() {
               <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
             </Link>
 
-            <Link
-              href="/gallery"
+            <a
+              href="/company-portfolio.pdf"
+              download
               className="inline-flex items-center border border-border px-8 py-4 font-mono text-sm uppercase tracking-[0.2em] transition-colors hover:border-primary hover:text-primary"
             >
-              Portfolio
-            </Link>
+              PORTFOLIO ⭳
+            </a>
 
           </div>
         </motion.div>

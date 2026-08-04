@@ -179,14 +179,14 @@ export default function Home() {
 
       <section className="relative overflow-hidden">
         <div className="absolute inset-0 pointer-events-none">
-          
+
           {/* High Fidelity Light Source */}
           <div className="absolute top-[-8rem] left-1/2 -translate-x-1/2">
             {/* Main Outer Glow */}
-            <motion.div 
+            <motion.div
               className="absolute -top-32 -left-32 h-[300px] w-[300px] md:h-[600px] md:w-[600px] rounded-full bg-primary/10 blur-[100px] mix-blend-screen"
-              animate={{ 
-                x: [-40, 40, -40], 
+              animate={{
+                x: [-40, 40, -40],
                 y: [-30, 30, -30],
                 scale: [1, 1.2, 1],
                 opacity: [0.5, 0.8, 0.5]
@@ -194,10 +194,10 @@ export default function Home() {
               transition={{ duration: 15, repeat: Infinity, ease: "easeInOut" }}
             />
             {/* Inner Intense Glow */}
-            <motion.div 
+            <motion.div
               className="absolute top-10 left-10 h-[200px] w-[200px] md:h-[400px] md:w-[400px] rounded-full bg-primary/20 blur-[80px] mix-blend-screen"
-              animate={{ 
-                x: [30, -30, 30], 
+              animate={{
+                x: [30, -30, 30],
                 y: [40, -40, 40],
                 scale: [0.8, 1.1, 0.8],
                 opacity: [0.6, 1, 0.6]
@@ -205,9 +205,9 @@ export default function Home() {
               transition={{ duration: 10, repeat: Infinity, ease: "easeInOut", delay: 2 }}
             />
             {/* Core Highlight */}
-            <motion.div 
+            <motion.div
               className="absolute top-24 left-24 h-[100px] w-[100px] md:h-[200px] md:w-[200px] rounded-full bg-white/5 blur-[50px] mix-blend-screen"
-              animate={{ 
+              animate={{
                 scale: [1, 1.5, 1],
                 opacity: [0.3, 0.7, 0.3]
               }}
@@ -340,7 +340,7 @@ export default function Home() {
       <TrustedBy />
 
       {/* ================= SELECTED PROJECTS ================= */}
-      
+
       <SelectedProjects />
 
       {/* ================= CTA ================= */}
@@ -386,7 +386,7 @@ export default function Home() {
               href="/gallery"
               className="inline-flex items-center border border-border px-8 py-4 font-mono text-sm uppercase tracking-[0.2em] transition-colors hover:border-primary hover:text-primary"
             >
-             Portfolio
+              Portfolio
             </Link>
 
           </div>
